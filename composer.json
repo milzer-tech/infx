@@ -1,12 +1,12 @@
 {
-    "name": "nunomaduro/skeleton-php",
-    "description": "A skeleton repository for my packages",
-    "keywords": ["php", "skeleton", "package"],
+    "name": "milzer-digital/infx",
+    "description": "infx is a specific format using in Germany tourism industry.",
+    "keywords": ["php", "infx", "package"],
     "license": "MIT",
     "authors": [
         {
-            "name": "Nuno Maduro",
-            "email": "enunomaduro@gmail.com"
+            "name": "Azim Kordpour Hendekhaleh",
+            "email": "azim@milzer.de"
         }
     ],
     "require": {
@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "NunoMaduro\\SkeletonPhp\\": "src/"
+            "Milzer\\Infx\\": "src/"
         }
     },
     "autoload-dev": {
