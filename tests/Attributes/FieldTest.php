@@ -38,7 +38,8 @@ it('initializes a Field attribute with string validation rule', function () {
 });
 
 it('retrieves Field attribute using reflection', function () {
-    $classWithAttribute = new class {
+    $classWithAttribute = new class
+    {
         #[Field(position: 1, length: 10, required: true)]
         public string $example;
     };
