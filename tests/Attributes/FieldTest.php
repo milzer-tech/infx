@@ -2,7 +2,7 @@
 
 use Milzer\Infx\Attributes\Field;
 
-it('initializes a Field attribute correctly', function () {
+it('initializes a Field attribute correctly', function (): void {
     $validationRules = ['required', 'string', 'max:10'];
     $validationMessages = ['required' => 'This field is required.'];
 
@@ -21,7 +21,7 @@ it('initializes a Field attribute correctly', function () {
         ->and($field->required)->toBeTrue();
 });
 
-it('initializes a Field attribute with string validation rule', function () {
+it('initializes a Field attribute with string validation rule', function (): void {
     $validationRules = 'required|string';
 
     $field = new Field(
@@ -37,7 +37,7 @@ it('initializes a Field attribute with string validation rule', function () {
         ->and($field->required)->toBeFalse();
 });
 
-it('retrieves Field attribute using reflection', function () {
+it('retrieves Field attribute using reflection', function (): void {
     $classWithAttribute = new class
     {
         #[Field(position: 1, length: 10, required: true)]

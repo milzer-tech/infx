@@ -16,16 +16,14 @@ class Infx
     /**
      * Create a new instance of Infx.
      */
-    final public function __construct()
-    {
-    }
+    final public function __construct() {}
 
     /**
      * Create a new instance of Infx statically.
      */
     public static function make(): static
     {
-        return new static();
+        return new static;
     }
 
     /**
@@ -41,13 +39,13 @@ class Infx
     /**
      * Add lines to the Infx.
      *
-     * @param iterable<Line> $lines
+     * @param  iterable<Line>  $lines
      */
     public function addLines(iterable $lines): static
     {
         foreach ($lines as $line) {
-            if(!$line instanceof Line) {
-                throw new \InvalidArgumentException('The line must be an instance of ' . Line::class);
+            if (! $line instanceof Line) {
+                throw new \InvalidArgumentException('The line must be an instance of '.Line::class);
             }
 
             $this->addLine($line);
