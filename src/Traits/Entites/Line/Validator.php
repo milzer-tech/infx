@@ -4,6 +4,7 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Carbon\Carbon;
 use InvalidArgumentException;
+use Milzer\Infx\Helpers\ValidatorHelper;
 use ReflectionException;
 use ReflectionProperty;
 
@@ -18,7 +19,7 @@ trait Validator
     {
         $field = $this->getFieldInstance($property);
 
-        $validator = \Illuminate\Support\Facades\Validator::make(
+        $validator = ValidatorHelper::validate(
             data: [$property => $value instanceof Carbon ? $value->format('d.m.Y') : $value],
             rules: [$property => $field->validationRules],
             messages: [$property => $field->validationMessages]
@@ -42,7 +43,7 @@ trait Validator
     private function validateRequiredProperty(ReflectionProperty $reflectionProperty): void
     {
         if (
-            ! $reflectionProperty->isInitialized($this)
+            !$reflectionProperty->isInitialized($this)
             && $this->getFieldInstance($reflectionProperty->name)->required
         ) {
             throw new InvalidArgumentException(
