@@ -1,10 +1,10 @@
 <?php
 
-use Milzer\Infx\Infx;
 use Milzer\Infx\Entities\Line;
+use Milzer\Infx\Infx;
 
 beforeEach(function (): void {
-    $this->filePath = __DIR__ . '/test_infx_file.txt';
+    $this->filePath = __DIR__.'/test_infx_file.txt';
 
     if (file_exists($this->filePath)) {
         unlink($this->filePath);
@@ -23,7 +23,7 @@ test('it should create a file in write mode', function (): void {
 test('it should throw exception if file already exists and append is false', function (): void {
     file_put_contents($this->filePath, 'Some initial content');
 
-    expect(fn(): \Milzer\Infx\Infx => Infx::make($this->filePath))
+    expect(fn (): \Milzer\Infx\Infx => Infx::make($this->filePath))
         ->toThrow(RuntimeException::class, "File already exists: {$this->filePath}");
 });
 
@@ -40,7 +40,6 @@ test('it should append to an existing file when append is true', function (): vo
     $content = file_get_contents($this->filePath);
     expect($content)->toContain('Appended content');
 });
-
 
 test('it should add lines to the file', function (): void {
     $infx = Infx::make($this->filePath);

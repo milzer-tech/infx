@@ -23,7 +23,7 @@ class Infx
      */
     final public function __construct(string $filePath, bool $append = false)
     {
-        if (file_exists($filePath) && !$append) {
+        if (file_exists($filePath) && ! $append) {
             throw new RuntimeException("File already exists: {$filePath}");
         }
 
@@ -53,7 +53,7 @@ class Infx
     {
         fwrite(
             stream: $this->fileHandle,
-            data: $line->toString() . PHP_EOL
+            data: $line->toString().PHP_EOL
         );
 
         return $this;
@@ -62,15 +62,15 @@ class Infx
     /**
      * Add multiple lines to the Infx file.
      *
-     * @param iterable<Line> $lines
+     * @param  iterable<Line>  $lines
      *
      * @throws ReflectionException
      */
     public function addLines(iterable $lines): static
     {
         foreach ($lines as $line) {
-            if (!$line instanceof Line) {
-                throw new InvalidArgumentException('The line must be an instance of ' . Line::class);
+            if (! $line instanceof Line) {
+                throw new InvalidArgumentException('The line must be an instance of '.Line::class);
             }
 
             $this->addLine($line);

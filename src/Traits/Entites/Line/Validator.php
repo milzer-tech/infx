@@ -43,7 +43,7 @@ trait Validator
     private function validateRequiredProperty(ReflectionProperty $reflectionProperty): void
     {
         if (
-            !$reflectionProperty->isInitialized($this)
+            ! $reflectionProperty->isInitialized($this)
             && $this->getFieldInstance($reflectionProperty->name)->required
         ) {
             throw new InvalidArgumentException(
