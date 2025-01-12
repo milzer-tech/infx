@@ -7,6 +7,8 @@ use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator;
+use Illuminate\Translation\FileLoader;
+use Illuminate\Filesystem\Filesystem;
 
 class ValidatorHelper
 {
@@ -21,7 +23,9 @@ class ValidatorHelper
      */
     public static function validate(array $data, array $rules, array $messages): Validator
     {
-        $translator = new Translator(new ArrayLoader, 'en');
+        $fileLoader = new FileLoader(new Filesystem(), __DIR__ . '/../../vendor/illuminate/translation/lang');
+
+        $translator = new Translator($fileLoader, 'en');
 
         $validator = new Factory($translator);
 
