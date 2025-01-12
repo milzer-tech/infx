@@ -106,6 +106,10 @@ class Line implements Stringable
     use LineHelper\LineFormatter;
     use LineHelper\Validator;
 
+    final public function __construct()
+    {
+    }
+
     /**
      * Returns string representation of the object.
      *
@@ -114,5 +118,13 @@ class Line implements Stringable
     public function __toString(): string
     {
         return $this->toString();
+    }
+
+    /**
+     * Create a new instance of Line statically.
+     */
+    public static function make(): static
+    {
+        return new static();
     }
 }
