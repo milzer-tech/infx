@@ -13,13 +13,13 @@ class Line implements Stringable
     use LineHelper\HasAirlineReturn;
     use LineHelper\HasArrivalAirportOutbound;
     use LineHelper\HasArrivalAirportReturn;
+
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalOutboundTim;
+
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalReturnTime;
-
     use LineHelper\HasBoardCode;
-
     use LineHelper\HasBoardDescription;
     use LineHelper\HasCatalogName;
     use LineHelper\HasCatalogPage;
@@ -28,22 +28,24 @@ class Line implements Stringable
     use LineHelper\HasDepartureAirportReturn;
     use LineHelper\HasDepartureOutboundTime;
     use LineHelper\HasDepartureReturnTime;
+
     // not documented
     use LineHelper\HasDestinationLocation;
     use LineHelper\HasEndDate;
     use LineHelper\HasEquipment;
     use LineHelper\HasExpected;
     use LineHelper\HasExpectedDepartureReturnTime;
+
     // TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\HasFirstChildAgeFrom;
     use LineHelper\HasFirstChildAgeTo;
-
     use LineHelper\HasFirstChildPrice;
     use LineHelper\HasFirstLongText;
     use LineHelper\HasFreeFlightSeats;
     use LineHelper\HasFreeHotelPlaces;
     use LineHelper\HasHotelCategory;
     use LineHelper\HasHotelName;
+
     // TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\HasInfantPrice;
     use LineHelper\HasLeer;
@@ -61,11 +63,12 @@ class Line implements Stringable
     use LineHelper\HasReturnFlightNumber;
     use LineHelper\HasRoomDescription;
     use LineHelper\HasRoomShortCode;
+
     // [+/]-/% als Prefix
     use LineHelper\HasSecondChildAgeFrom;
     use LineHelper\HasSecondChildAgeTo;
-
     use LineHelper\HasSecondChildPrice;
+
     // not documented
     use LineHelper\HasSecondLeer;
     use LineHelper\HasSecondLongText;
@@ -76,16 +79,15 @@ class Line implements Stringable
 
     // not documented
     use LineHelper\HasSpecialChildrenDiscount;
+
     // [+/]-/% als Prefix//
     use LineHelper\HasSpecialDiscount;
-
     use LineHelper\HasStartDate;
-
     use LineHelper\HasTitleInfo;
+
     // default value ??
     use LineHelper\HasTomaAction;
     use LineHelper\HasTomaFirstAccommodation;
-
     use LineHelper\HasTomaFirstPerformance;
     use LineHelper\HasTomaFirstRequirement;
     use LineHelper\HasTomaFourthAccommodation;
@@ -106,9 +108,7 @@ class Line implements Stringable
     use LineHelper\LineFormatter;
     use LineHelper\Validator;
 
-    final public function __construct()
-    {
-    }
+    final public function __construct() {}
 
     /**
      * Returns string representation of the object.
@@ -125,6 +125,6 @@ class Line implements Stringable
      */
     public static function make(): static
     {
-        return new static();
+        return new static;
     }
 }

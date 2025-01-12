@@ -2,13 +2,12 @@
 
 namespace Milzer\Infx\Helpers;
 
-use Illuminate\Translation\ArrayLoader;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Translation\FileLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Factory;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Validation\Validator;
-use Illuminate\Translation\FileLoader;
-use Illuminate\Filesystem\Filesystem;
 
 class ValidatorHelper
 {
@@ -23,7 +22,7 @@ class ValidatorHelper
      */
     public static function validate(array $data, array $rules, array $messages): Validator
     {
-        $fileLoader = new FileLoader(new Filesystem(), __DIR__ . '/../../vendor/illuminate/translation/lang');
+        $fileLoader = new FileLoader(new Filesystem, __DIR__.'/../../vendor/illuminate/translation/lang');
 
         $translator = new Translator($fileLoader, 'en');
 
