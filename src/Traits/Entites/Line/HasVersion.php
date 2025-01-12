@@ -38,7 +38,7 @@ trait HasVersion
             value: $version,
         );
 
-        $this->version = $version === 1 ? '00' : '01';
+        $this->version = $version === 2 ? '01' : '00';
 
         return $this;
     }
