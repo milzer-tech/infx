@@ -12,7 +12,7 @@ trait HasBoardDescription
     #[Field(
         position: 50,
         length: 25,
-        validationRules: 'required|string|min:1|max:25',
+        validationRules: ['string', 'min:1', 'max:25']
     )]
     protected string $boardDescription;
 
@@ -29,11 +29,6 @@ trait HasBoardDescription
      */
     public function setBoardDescription(string $text): static
     {
-        $this->validate(
-            property: 'boardDescription',
-            value: $text,
-        );
-
         $this->boardDescription = $text;
 
         return $this;

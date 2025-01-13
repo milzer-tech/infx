@@ -12,7 +12,7 @@ trait HasDestinationLocation
     #[Field(
         position: 44,
         length: 25,
-        validationRules: 'required|string|min:1|max:25',
+        validationRules: ['string', 'min:1', 'max:25']
     )]
     protected string $destinationLocation;
 
@@ -29,11 +29,6 @@ trait HasDestinationLocation
      */
     public function setDestinationLocation(string $location): static
     {
-        $this->validate(
-            property: 'destinationLocation',
-            value: $location,
-        );
-
         $this->destinationLocation = $location;
 
         return $this;

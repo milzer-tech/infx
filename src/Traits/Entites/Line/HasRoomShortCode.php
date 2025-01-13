@@ -12,7 +12,7 @@ trait HasRoomShortCode
     #[Field(
         position: 47,
         length: 2,
-        validationRules: 'required|string|min:1|max:2',
+        validationRules: ['required', 'string', 'min:1', 'max:2']
     )]
     protected string $roomShortCode;
 
@@ -29,11 +29,6 @@ trait HasRoomShortCode
      */
     public function setRoomShortCode(string $code): static
     {
-        $this->validate(
-            property: 'roomShortCode',
-            value: $code,
-        );
-
         $this->roomShortCode = $code;
 
         return $this;

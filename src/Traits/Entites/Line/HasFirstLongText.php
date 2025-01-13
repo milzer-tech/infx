@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasFirstLongText
 {
@@ -13,7 +12,7 @@ trait HasFirstLongText
     #[Field(
         position: 68,
         length: 80,
-        validationRules: 'required|string|min:1|max:80',
+        validationRules: ['required', 'string', 'min:1', 'max:80']
     )]
     protected string $firstLongText;
 
@@ -27,16 +26,9 @@ trait HasFirstLongText
 
     /**
      * Set the first long text of the line.
-     *
-     * @throws ReflectionException
      */
     public function setFirstLongText(string $text): static
     {
-        $this->validate(
-            property: 'firstLongText',
-            value: $text,
-        );
-
         $this->firstLongText = $text;
 
         return $this;

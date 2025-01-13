@@ -18,9 +18,11 @@ trait LineFormatter
     {
         $properties = [];
 
-        foreach ($this->getReflectionProperties() as $property => $reflectionProperty) {
-            $this->validateRequiredProperty($reflectionProperty);
+        $reflectionProperties = $this->getReflectionProperties();
 
+        $this->validateRequiredProperty($reflectionProperties);
+
+        foreach ($reflectionProperties as $property => $reflectionProperty) {
             $field = $this->getFieldInstance((string) $property);
 
             $properties[$field->position] = [
@@ -61,9 +63,9 @@ trait LineFormatter
      *
      * @throws ReflectionException
      */
-    private function getFieldInstance(string $property): Field
+    private function getFieldInstance(string $name): Field
     {
-        $reflectionProperty = new ReflectionProperty($this, $property);
+        $reflectionProperty = new ReflectionProperty($this, $name);
 
         return $reflectionProperty->getAttributes(Field::class)[0]->newInstance();
     }

@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasTomaThirdPerformance
 {
@@ -13,7 +12,7 @@ trait HasTomaThirdPerformance
     #[Field(
         position: 62,
         length: 17,
-        validationRules: 'required|string|min:1|max:17',
+        validationRules: ['string', 'min:1', 'max:17'],
     )]
     protected string $tomaThirdPerformance;
 
@@ -27,16 +26,9 @@ trait HasTomaThirdPerformance
 
     /**
      * Set the third TOMA performance of the line.
-     *
-     * @throws ReflectionException
      */
     public function setTomaThirdPerformance(string $value): static
     {
-        $this->validate(
-            property: 'tomaThirdPerformance',
-            value: $value,
-        );
-
         $this->tomaThirdPerformance = $value;
 
         return $this;

@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasAdditionalInformation
 {
@@ -13,7 +12,7 @@ trait HasAdditionalInformation
     #[Field(
         position: 71,
         length: 80,
-        validationRules: 'required|string|min:1|max:80',
+        validationRules: ['string', 'min:1', 'max:80'],
     )]
     protected string $additionalInformation;
 
@@ -27,16 +26,9 @@ trait HasAdditionalInformation
 
     /**
      * Set the additional information of the line.
-     *
-     * @throws ReflectionException
      */
     public function setAdditionalInformation(string $text): static
     {
-        $this->validate(
-            property: 'additionalInformation',
-            value: $text,
-        );
-
         $this->additionalInformation = $text;
 
         return $this;

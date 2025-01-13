@@ -13,7 +13,7 @@ trait HasMediaLink
     #[Field(
         position: 78,
         length: 160,
-        validationRules: 'required|string|min:1|max:160',
+        validationRules: ['required', 'string', 'min:1', 'max:160']
     )]
     protected string $mediaLink;
 
@@ -32,11 +32,6 @@ trait HasMediaLink
      */
     public function setMediaLink(string $link): static
     {
-        $this->validate(
-            property: 'mediaLink',
-            value: $link,
-        );
-
         $this->mediaLink = $link;
 
         return $this;

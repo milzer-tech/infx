@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasPartner
 {
@@ -13,8 +12,7 @@ trait HasPartner
     #[Field(
         position: 6,
         length: 9,
-        validationRules: 'required|string|min:1|max:9',
-        required: true
+        validationRules: ['required', 'string', 'min:1', 'max:9']
     )]
     protected string $partner;
 
@@ -28,16 +26,9 @@ trait HasPartner
 
     /**
      * Set the partner of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setPartner(string $partner): static
     {
-        $this->validate(
-            property: 'partner',
-            value: $partner,
-        );
-
         $this->partner = $partner;
 
         return $this;

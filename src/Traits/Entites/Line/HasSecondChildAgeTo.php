@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasSecondChildAgeTo
 {
@@ -13,7 +12,7 @@ trait HasSecondChildAgeTo
     #[Field(
         position: 39,
         length: 2,
-        validationRules: 'required|integer|min:0|max:17',
+        validationRules: ['integer', 'min:0', 'max:17']
     )]
     protected int $secondChildAgeTo;
 
@@ -27,16 +26,9 @@ trait HasSecondChildAgeTo
 
     /**
      * Set the second child age to.
-     *
-     * @throws ReflectionException
      */
     public function setSecondChildAgeTo(int $age): static
     {
-        $this->validate(
-            property: 'secondChildAgeTo',
-            value: $age,
-        );
-
         $this->secondChildAgeTo = $age;
 
         return $this;

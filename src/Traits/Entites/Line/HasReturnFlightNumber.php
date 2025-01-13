@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasReturnFlightNumber
 {
@@ -13,7 +12,7 @@ trait HasReturnFlightNumber
     #[Field(
         position: 24,
         length: 4,
-        validationRules: 'string|min:1|max:4'
+        validationRules: ['string', 'min:1', 'max:4']
     )]
     protected string $returnFlightNumber;
 
@@ -27,16 +26,9 @@ trait HasReturnFlightNumber
 
     /**
      * Set the return flight number of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setReturnFlightNumber(string $returnFlightNumber): static
     {
-        $this->validate(
-            property: 'returnFlightNumber',
-            value: $returnFlightNumber,
-        );
-
         $this->returnFlightNumber = $returnFlightNumber;
 
         return $this;

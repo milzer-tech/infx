@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasMaximumChildrenOccupancy
 {
@@ -13,7 +12,7 @@ trait HasMaximumChildrenOccupancy
     #[Field(
         position: 26,
         length: 1,
-        validationRules: 'int|min:1|max:9'
+        validationRules: ['int', 'min:1', 'max:9']
     )]
     protected int $maximumChildrenOccupancy;
 
@@ -27,16 +26,9 @@ trait HasMaximumChildrenOccupancy
 
     /**
      * Set the maximum children occupancy of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setMaximumChildrenOccupancy(int $count): static
     {
-        $this->validate(
-            property: 'maximumChildrenOccupancy',
-            value: $count,
-        );
-
         $this->maximumChildrenOccupancy = $count;
 
         return $this;

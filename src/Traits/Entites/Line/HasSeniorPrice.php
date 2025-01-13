@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasSeniorPrice
 {
@@ -14,7 +13,6 @@ trait HasSeniorPrice
         position: 33,
         length: 12,
         validationRules: [
-            'required',
             'regex:/^(?!0(\.0{2})?$)(\d{1,10}(\.\d{1,2})?)$/',
         ],
         validationMessages: [
@@ -33,16 +31,9 @@ trait HasSeniorPrice
 
     /**
      * Set the senior price of the line.
-     *
-     * @throws ReflectionException
      */
     public function setSeniorPrice(float $price): static
     {
-        $this->validate(
-            property: 'seniorPrice',
-            value: (string) $price,
-        );
-
         $this->seniorPrice = $price;
 
         return $this;

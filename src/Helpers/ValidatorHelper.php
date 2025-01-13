@@ -20,7 +20,7 @@ class ValidatorHelper
      *
      * @throws ValidationException
      */
-    public static function validate(array $data, array $rules, array $messages): Validator
+    public static function validate(array $data, array $rules, array $messages = []): Validator
     {
         $fileLoader = new FileLoader(new Filesystem, __DIR__.'/../../vendor/illuminate/translation/lang');
 

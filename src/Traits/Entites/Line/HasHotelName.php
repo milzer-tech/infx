@@ -12,7 +12,7 @@ trait HasHotelName
     #[Field(
         position: 45,
         length: 25,
-        validationRules: 'required|string|min:1|max:25',
+        validationRules: ['required', 'string', 'min:1', 'max:25']
     )]
     protected string $hotelName;
 
@@ -29,11 +29,6 @@ trait HasHotelName
      */
     public function setHotelName(string $name): static
     {
-        $this->validate(
-            property: 'hotelName',
-            value: $name,
-        );
-
         $this->hotelName = $name;
 
         return $this;

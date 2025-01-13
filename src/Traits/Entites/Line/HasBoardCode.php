@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasBoardCode
 {
@@ -13,7 +12,7 @@ trait HasBoardCode
     #[Field(
         position: 49,
         length: 2,
-        validationRules: 'required|string|min:1|max:2'
+        validationRules: ['string', 'min:1', 'max:2']
     )]
     protected string $boardCode;
 
@@ -27,16 +26,9 @@ trait HasBoardCode
 
     /**
      * Set the board code of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setBoardCode(string $code): static
     {
-        $this->validate(
-            property: 'boardCode',
-            value: $code,
-        );
-
         $this->boardCode = $code;
 
         return $this;

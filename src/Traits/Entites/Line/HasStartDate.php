@@ -4,7 +4,6 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Carbon\Carbon;
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasStartDate
 {
@@ -14,8 +13,7 @@ trait HasStartDate
     #[Field(
         position: 7,
         length: 10,
-        validationRules: 'required',
-        required: true
+        validationRules: ['required']
     )]
     protected Carbon $startDate;
 
@@ -29,16 +27,9 @@ trait HasStartDate
 
     /**
      * Set the start date of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setStartDate(Carbon $startDate): static
     {
-        $this->validate(
-            property: 'startDate',
-            value: $startDate,
-        );
-
         $this->startDate = $startDate;
 
         return $this;

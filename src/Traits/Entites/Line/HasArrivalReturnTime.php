@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasArrivalReturnTime
 {
@@ -27,16 +26,9 @@ trait HasArrivalReturnTime
 
     /**
      * Set arrival return time of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setArrivalReturnTime(string $arrivalReturnTime): static
     {
-        $this->validate(
-            property: 'arrivalReturnTime',
-            value: $arrivalReturnTime,
-        );
-
         $this->arrivalReturnTime = $this->correctTime(time: $arrivalReturnTime);
 
         return $this;

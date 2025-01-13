@@ -12,8 +12,7 @@ trait HasTomaTravelMode
     #[Field(
         position: 54,
         length: 4,
-        validationRules: 'required|string|min:1|max:4',
-        required: true,
+        validationRules: ['string', 'min:1', 'max:4']
     )]
     protected string $tomaTravelMode;
 
@@ -30,11 +29,6 @@ trait HasTomaTravelMode
      */
     public function setTomaTravelMode(string $value): static
     {
-        $this->validate(
-            property: 'tomaTravelMode',
-            value: $value,
-        );
-
         $this->tomaTravelMode = $value;
 
         return $this;

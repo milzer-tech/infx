@@ -12,7 +12,7 @@ trait HasTravelTypeDescription
     #[Field(
         position: 52,
         length: 25,
-        validationRules: 'required|string|min:1|max:25',
+        validationRules: ['string', 'min:1', 'max:25']
     )]
     protected string $travelTypeDescription;
 
@@ -29,11 +29,6 @@ trait HasTravelTypeDescription
      */
     public function setTravelTypeDescription(string $text): static
     {
-        $this->validate(
-            property: 'travelTypeDescription',
-            value: $text,
-        );
-
         $this->travelTypeDescription = $text;
 
         return $this;

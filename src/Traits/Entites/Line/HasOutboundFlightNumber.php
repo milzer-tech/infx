@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasOutboundFlightNumber
 {
@@ -13,7 +12,7 @@ trait HasOutboundFlightNumber
     #[Field(
         position: 23,
         length: 4,
-        validationRules: 'string|min:1|max:4'
+        validationRules: ['string', 'min:1', 'max:4']
     )]
     protected string $outboundFlightNumber;
 
@@ -27,16 +26,9 @@ trait HasOutboundFlightNumber
 
     /**
      * Set the outbound flight number of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setOutboundFlightNumber(string $OutboundFlightNumber): static
     {
-        $this->validate(
-            property: 'outboundFlightNumber',
-            value: $OutboundFlightNumber,
-        );
-
         $this->outboundFlightNumber = $OutboundFlightNumber;
 
         return $this;

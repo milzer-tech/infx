@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasDepartureOutboundTime
 {
@@ -27,16 +26,9 @@ trait HasDepartureOutboundTime
 
     /**
      * Set the departure outbound time of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setDepartureOutboundTime(string $departureOutboundTime): static
     {
-        $this->validate(
-            property: 'departureOutboundTime',
-            value: $departureOutboundTime,
-        );
-
         $this->departureOutboundTime = $this->correctTime($departureOutboundTime);
 
         return $this;

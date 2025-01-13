@@ -2,6 +2,8 @@
 
 namespace Milzer\Infx\Entities;
 
+use BackedEnum;
+use InvalidArgumentException;
 use Milzer\Infx\Traits\Entites\Line as LineHelper;
 use ReflectionException;
 use Stringable;
@@ -29,14 +31,14 @@ class Line implements Stringable
     use LineHelper\HasDepartureOutboundTime;
     use LineHelper\HasDepartureReturnTime;
 
-    // not documented
+    //    not documented
     use LineHelper\HasDestinationLocation;
     use LineHelper\HasEndDate;
     use LineHelper\HasEquipment;
     use LineHelper\HasExpected;
     use LineHelper\HasExpectedDepartureReturnTime;
 
-    // TODO : Check with format. [+/]-/% als Prefix
+    //   TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\HasFirstChildAgeFrom;
     use LineHelper\HasFirstChildAgeTo;
     use LineHelper\HasFirstChildPrice;
@@ -46,7 +48,7 @@ class Line implements Stringable
     use LineHelper\HasHotelCategory;
     use LineHelper\HasHotelName;
 
-    // TODO : Check with format. [+/]-/% als Prefix
+    //     TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\HasInfantPrice;
     use LineHelper\HasLeer;
     use LineHelper\HasmaximumAdultOccupancy;
@@ -64,28 +66,30 @@ class Line implements Stringable
     use LineHelper\HasRoomDescription;
     use LineHelper\HasRoomShortCode;
 
-    // [+/]-/% als Prefix
+    //     [+/]-/% als Prefix
     use LineHelper\HasSecondChildAgeFrom;
     use LineHelper\HasSecondChildAgeTo;
     use LineHelper\HasSecondChildPrice;
 
-    // not documented
+    //     not documented
     use LineHelper\HasSecondLeer;
     use LineHelper\HasSecondLongText;
 
-    // TODO : Check with format. 201.29
+    //     TODO : Check with format. 201.29
     use LineHelper\HasSeniorPrice;
     use LineHelper\HasSentenceFormat;
 
-    // not documented
+    //     not documented
     use LineHelper\HasSpecialChildrenDiscount;
 
-    // [+/]-/% als Prefix//
+    //
+    //     [+/]-/% als Prefix//
     use LineHelper\HasSpecialDiscount;
     use LineHelper\HasStartDate;
     use LineHelper\HasTitleInfo;
 
-    // default value ??
+    //
+    //     default value ??
     use LineHelper\HasTomaAction;
     use LineHelper\HasTomaFirstAccommodation;
     use LineHelper\HasTomaFirstPerformance;
@@ -108,10 +112,45 @@ class Line implements Stringable
     use LineHelper\LineFormatter;
     use LineHelper\Validator;
 
-    final public function __construct() {}
+    //
+    /**
+     * The default values for the properties.
+     *
+     * @var array<string, string|int|float|BackedEnum>
+     */
+    private static array $defaultValues = [];
+
+    final public function __construct()
+    {
+        $this->assignDefaultValues();
+    }
 
     /**
-     * Returns string representation of the object.
+     * Create a new instance of Line statically.
+     */
+    public static function make(): static
+    {
+        return new static;
+    }
+
+    /**
+     * Set the default values for the properties.
+     *
+     * @param  array<string, string|int|float|BackedEnum>  $values
+     */
+    public static function setDefaultValues(array $values): void
+    {
+        foreach ($values as $property => $value) {
+            if (! property_exists(static::class, $property)) {
+                throw new InvalidArgumentException("The property $property does not exist on ".static::class);
+            }
+
+            self::$defaultValues[$property] = $value;
+        }
+    }
+
+    /**
+     * Returns string representation of the object
      *
      * @throws ReflectionException
      */
@@ -121,10 +160,12 @@ class Line implements Stringable
     }
 
     /**
-     * Create a new instance of Line statically.
+     * Assign the default values to the properties.
      */
-    public static function make(): static
+    private function assignDefaultValues(): void
     {
-        return new static;
+        foreach (self::$defaultValues as $property => $value) {
+            $this->{$property} = $value;
+        }
     }
 }

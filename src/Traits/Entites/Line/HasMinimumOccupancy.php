@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasMinimumOccupancy
 {
@@ -13,7 +12,7 @@ trait HasMinimumOccupancy
     #[Field(
         position: 27,
         length: 1,
-        validationRules: 'int|min:1|max:9'
+        validationRules: ['int', 'min:1', 'max:9']
     )]
     protected int $minimumOccupancy;
 
@@ -27,16 +26,9 @@ trait HasMinimumOccupancy
 
     /**
      * Set the minimum occupancy of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setMinimumOccupancy(int $count): static
     {
-        $this->validate(
-            property: 'minimumOccupancy',
-            value: $count,
-        );
-
         $this->minimumOccupancy = $count;
 
         return $this;

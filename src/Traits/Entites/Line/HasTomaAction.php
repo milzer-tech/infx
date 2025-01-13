@@ -12,8 +12,7 @@ trait HasTomaAction
     #[Field(
         position: 55,
         length: 2,
-        validationRules: 'required|string|min:1|max:2',
-        required: true,
+        validationRules: ['required', 'string', 'min:1', 'max:2']
     )]
     protected string $tomaAction;
 
@@ -30,11 +29,6 @@ trait HasTomaAction
      */
     public function setTomaAction(string $value): static
     {
-        $this->validate(
-            property: 'tomaAction',
-            value: $value,
-        );
-
         $this->tomaAction = $value;
 
         return $this;

@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasRoomDescription
 {
@@ -13,7 +12,7 @@ trait HasRoomDescription
     #[Field(
         position: 48,
         length: 25,
-        validationRules: 'required|string|min:1|max:25',
+        validationRules: ['required', 'string', 'min:1', 'max:25']
     )]
     protected string $roomDescription;
 
@@ -27,16 +26,9 @@ trait HasRoomDescription
 
     /**
      * Set the room short code.
-     *
-     * @throws ReflectionException
      */
     public function setRoomDescription(string $text): static
     {
-        $this->validate(
-            property: 'roomDescription',
-            value: $text,
-        );
-
         $this->roomDescription = $text;
 
         return $this;

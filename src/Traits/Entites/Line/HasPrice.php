@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasPrice
 {
@@ -19,8 +18,7 @@ trait HasPrice
         ],
         validationMessages: [
             'regex' => 'The format of the price must be between 0.01 and 9999999999.99.',
-        ],
-        required: true,
+        ]
     )]
     protected float $price;
 
@@ -34,16 +32,9 @@ trait HasPrice
 
     /**
      * Set the currency of the line.
-     *
-     * @throws ReflectionException
      */
     public function setPrice(float $price): static
     {
-        $this->validate(
-            property: 'price',
-            value: (string) $price,
-        );
-
         $this->price = $price;
 
         return $this;

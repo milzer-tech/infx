@@ -15,7 +15,7 @@ trait HasExpectedDepartureReturnTime
     #[Field(
         position: 21,
         length: 1,
-        validationRules: 'string|min:1|max:1'
+        validationRules: ['string', 'min:1', 'max:1']
     )]
     protected string $expectedDepartureReturnTime = 'v';
 }

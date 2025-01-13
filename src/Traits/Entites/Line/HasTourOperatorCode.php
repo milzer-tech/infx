@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasTourOperatorCode
 {
@@ -13,8 +12,7 @@ trait HasTourOperatorCode
     #[Field(
         position: 3,
         length: 5,
-        validationRules: 'required|string|min:1|max:5',
-        required: true
+        validationRules: ['required', 'string', 'min:1', 'max:5']
     )]
     protected string $tourOperatorCode;
 
@@ -28,16 +26,9 @@ trait HasTourOperatorCode
 
     /**
      * Set the tour operator code of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setTourOperatorCode(string $tourOperatorCode): static
     {
-        $this->validate(
-            property: 'tourOperatorCode',
-            value: $tourOperatorCode,
-        );
-
         $this->tourOperatorCode = $tourOperatorCode;
 
         return $this;

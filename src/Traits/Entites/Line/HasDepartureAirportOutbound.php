@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasDepartureAirportOutbound
 {
@@ -13,8 +12,7 @@ trait HasDepartureAirportOutbound
     #[Field(
         position: 9,
         length: 3,
-        validationRules: 'required|string|min:1|max:3',
-        required: true
+        validationRules: ['required', 'string', 'min:1', 'max:3']
     )]
     protected string $departureAirportOutbound;
 
@@ -28,16 +26,9 @@ trait HasDepartureAirportOutbound
 
     /**
      * Set the departure airport of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setDepartureAirportOutbound(string $departureAirportOutbound): static
     {
-        $this->validate(
-            property: 'departureAirportOutbound',
-            value: $departureAirportOutbound,
-        );
-
         $this->departureAirportOutbound = $departureAirportOutbound;
 
         return $this;

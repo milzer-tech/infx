@@ -12,8 +12,7 @@ trait HasTomaOrganizer
     #[Field(
         position: 53,
         length: 4,
-        validationRules: 'required|string|min:1|max:4',
-        required: true,
+        validationRules: ['required', 'string', 'min:1', 'max:4']
     )]
     protected string $tomaOrganizer;
 
@@ -30,11 +29,6 @@ trait HasTomaOrganizer
      */
     public function setTomaOrganizer(string $value): static
     {
-        $this->validate(
-            property: 'tomaOrganizer',
-            value: $value,
-        );
-
         $this->tomaOrganizer = $value;
 
         return $this;

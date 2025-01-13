@@ -4,7 +4,6 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Carbon\Carbon;
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasEndDate
 {
@@ -27,16 +26,9 @@ trait HasEndDate
 
     /**
      * Set the end date of the Line.
-     *
-     * @throws ReflectionException
      */
     public function setEndDate(Carbon $endDate): static
     {
-        $this->validate(
-            property: 'endDate',
-            value: $endDate,
-        );
-
         $this->endDate = $endDate;
 
         return $this;

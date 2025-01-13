@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasTomaSecondRequirement
 {
@@ -13,7 +12,7 @@ trait HasTomaSecondRequirement
     #[Field(
         position: 57,
         length: 3,
-        validationRules: 'required|string|min:1|max:3',
+        validationRules: ['string', 'min:1', 'max:3']
     )]
     protected string $tomaSecondRequirement;
 
@@ -27,16 +26,9 @@ trait HasTomaSecondRequirement
 
     /**
      * Set the second TOMA requirement of the line.
-     *
-     * @throws ReflectionException
      */
     public function setTomaSecondRequirement(string $value): static
     {
-        $this->validate(
-            property: 'tomaSecondRequirement',
-            value: $value,
-        );
-
         $this->tomaSecondRequirement = $value;
 
         return $this;

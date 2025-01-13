@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasTomaFirstAccommodation
 {
@@ -13,8 +12,7 @@ trait HasTomaFirstAccommodation
     #[Field(
         position: 64,
         length: 6,
-        validationRules: 'required|string|min:1|max:6',
-        required: true,
+        validationRules: ['required', 'string', 'min:1', 'max:6']
     )]
     protected string $tomaFirstAccommodation;
 
@@ -28,16 +26,9 @@ trait HasTomaFirstAccommodation
 
     /**
      * Set the first TOMA accommodation of the line.
-     *
-     * @throws ReflectionException
      */
     public function setTomaFirstAccommodation(string $value): static
     {
-        $this->validate(
-            property: 'tomaFirstAccommodation',
-            value: $value,
-        );
-
         $this->tomaFirstAccommodation = $value;
 
         return $this;

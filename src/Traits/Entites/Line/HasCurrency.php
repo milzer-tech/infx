@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasCurrency
 {
@@ -13,8 +12,7 @@ trait HasCurrency
     #[Field(
         position: 31,
         length: 3,
-        validationRules: 'required|string|max:3',
-        required: true,
+        validationRules: ['required', 'string', 'max:3'],
     )]
     protected string $currency;
 
@@ -28,16 +26,9 @@ trait HasCurrency
 
     /**
      * Set the currency of the line.
-     *
-     * @throws ReflectionException
      */
     public function setCurrency(string $currency): static
     {
-        $this->validate(
-            property: 'currency',
-            value: $currency,
-        );
-
         $this->currency = $currency;
 
         return $this;

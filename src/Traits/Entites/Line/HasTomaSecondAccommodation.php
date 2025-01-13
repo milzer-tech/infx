@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasTomaSecondAccommodation
 {
@@ -13,7 +12,7 @@ trait HasTomaSecondAccommodation
     #[Field(
         position: 65,
         length: 6,
-        validationRules: 'required|string|min:1|max:6',
+        validationRules: ['string', 'min:1', 'max:6']
     )]
     protected string $tomaSecondAccommodation;
 
@@ -27,16 +26,9 @@ trait HasTomaSecondAccommodation
 
     /**
      * Set the second TOMA accommodation of the line.
-     *
-     * @throws ReflectionException
      */
     public function setTomaSecondAccommodation(string $value): static
     {
-        $this->validate(
-            property: 'tomaSecondAccommodation',
-            value: $value,
-        );
-
         $this->tomaSecondAccommodation = $value;
 
         return $this;

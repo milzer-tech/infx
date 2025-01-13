@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasInfantPrice
 {
@@ -14,7 +13,6 @@ trait HasInfantPrice
         position: 34,
         length: 12,
         validationRules: [
-            'required',
             'regex:/^(?!0(\.0{2})?$)(\d{1,10}(\.\d{1,2})?)$/',
         ],
         validationMessages: [
@@ -33,16 +31,9 @@ trait HasInfantPrice
 
     /**
      * Set the infant price of the line.
-     *
-     * @throws ReflectionException
      */
     public function setInfantPrice(float $price): static
     {
-        $this->validate(
-            property: 'infantPrice',
-            value: (string) $price,
-        );
-
         $this->infantPrice = $price;
 
         return $this;

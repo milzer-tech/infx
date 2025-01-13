@@ -11,43 +11,37 @@ use ReflectionProperty;
 trait Validator
 {
     /**
-     * Validate the properties of the Line.
+     * Validate the required property.
+     *
+     * @param  array<int, ReflectionProperty>  $reflectionProperties
      *
      * @throws ReflectionException
      */
-    private function validate(string $property, string|int|null|Carbon $value): void
+    private function validateRequiredProperty(array $reflectionProperties): void
     {
-        $field = $this->getFieldInstance($property);
+        $data = [];
+        $rules = [];
+        $messages = [];
 
-        $validator = ValidatorHelper::validate(
-            data: [$property => $value instanceof Carbon ? $value->format('d.m.Y') : $value],
-            rules: [$property => $field->validationRules],
-            messages: [$property => $field->validationMessages]
-        );
+        foreach ($reflectionProperties as $property) {
+            if ($property->isInitialized(object: $this)) {
+                $value = $this->{$property->name};
+
+                $data[$property->name] = $value instanceof Carbon ? $value->format('d.m.Y') : $value;
+            }
+
+            $rules[$property->name] = $this->getFieldInstance(name: $property->name)->validationRules;
+            $messages[$property->name] = $this->getFieldInstance(name: $property->name)->validationMessages;
+        }
+
+        $validator = ValidatorHelper::validate(data: $data, rules: $rules, messages: $messages);
 
         if ($validator->fails()) {
             throw new InvalidArgumentException(
-                message: implode(
-                    separator: ', ',
+                message: PHP_EOL.'Validation Errors: '.PHP_EOL.implode(
+                    separator: PHP_EOL,
                     array: $validator->errors()->all()
                 )
-            );
-        }
-    }
-
-    /**
-     * Validate the required property.
-     *
-     * @throws ReflectionException
-     */
-    private function validateRequiredProperty(ReflectionProperty $reflectionProperty): void
-    {
-        if (
-            ! $reflectionProperty->isInitialized($this)
-            && $this->getFieldInstance($reflectionProperty->name)->required
-        ) {
-            throw new InvalidArgumentException(
-                message: "The property named $reflectionProperty->name is required."
             );
         }
     }

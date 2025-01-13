@@ -12,7 +12,7 @@ trait HasHotelCategory
     #[Field(
         position: 46,
         length: 3,
-        validationRules: 'required|string|min:1|max:3',
+        validationRules: ['required', 'string', 'min:1', 'max:3']
     )]
     protected string $hotelCategory;
 
@@ -29,11 +29,6 @@ trait HasHotelCategory
      */
     public function setHotelCategory(string $name): static
     {
-        $this->validate(
-            property: 'hotelCategory',
-            value: $name,
-        );
-
         $this->hotelCategory = $name;
 
         return $this;

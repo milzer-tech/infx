@@ -12,7 +12,7 @@ trait HasTravelType
     #[Field(
         position: 51,
         length: 2,
-        validationRules: 'required|string|min:1|max:2',
+        validationRules: ['required', 'string', 'min:1', 'max:2']
     )]
     protected string $travelType;
 
@@ -29,11 +29,6 @@ trait HasTravelType
      */
     public function setTravelType(string $type): static
     {
-        $this->validate(
-            property: 'travelType',
-            value: $type,
-        );
-
         $this->travelType = $type;
 
         return $this;

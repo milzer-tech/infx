@@ -3,7 +3,6 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
-use ReflectionException;
 
 trait HasPriority
 {
@@ -13,7 +12,7 @@ trait HasPriority
     #[Field(
         position: 76,
         length: 2,
-        validationRules: 'required|string|min:1|max:2',
+        validationRules: ['string', 'min:1', 'max:2']
     )]
     protected string $priority;
 
@@ -27,16 +26,9 @@ trait HasPriority
 
     /**
      * Set the priority of the line.
-     *
-     * @throws ReflectionException
      */
     public function setPriority(string $value): static
     {
-        $this->validate(
-            property: 'priority',
-            value: $value,
-        );
-
         $this->priority = $value;
 
         return $this;
