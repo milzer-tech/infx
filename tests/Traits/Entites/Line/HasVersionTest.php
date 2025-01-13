@@ -10,9 +10,7 @@ it('gets the default version', function () {
 });
 
 it('sets the version to First', function () {
-    $line = new Line();
-
-    $line->setVersion(InfxVersion::First);
+    $line = Line::make()->setVersion(InfxVersion::First);
 
     expect($line->getVersion())->toBe(InfxVersion::First);
 });
