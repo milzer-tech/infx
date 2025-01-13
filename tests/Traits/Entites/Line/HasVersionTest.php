@@ -1,21 +1,34 @@
 <?php
 
-use Milzer\Infx\Entities\Line;
+use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Entities\Line; // Assuming `Line` uses `HasVersion` trait
+use Milzer\Infx\Enums\InfxVersion;
 
-test('it should set version to "00" when version 1 is passed', function (): void {
-    $line = Line::make()->setVersion(1);
-
-    expect($line->getVersion())->toBe('00');
+it('gets the default version', function () {
+    expect(Line::make()->getVersion())
+        ->toBe(InfxVersion::Second);
 });
 
-test('it should set version to "01" when version 2 is passed', function (): void {
-    $line = Line::make()->setVersion(2);
+it('sets the version to First', function () {
+    $line = new Line();
 
-    expect($line->getVersion())->toBe('01');
+    $line->setVersion(InfxVersion::First);
+
+    expect($line->getVersion())->toBe(InfxVersion::First);
 });
 
-test('it should validate version correctly', function (): void {
-    $line = Line::make()->setVersion(2);
+it('has the correct Field attribute for version property', function () {
+    $reflectionClass = new ReflectionClass(Line::class);
+    $property = $reflectionClass->getProperty('version');
+    $attributes = $property->getAttributes(Field::class);
 
-    expect($line->getVersion())->toBe('01');
+    expect($attributes)
+        ->toHaveCount(1)
+        ->and($attributes[0]->getName())->toBe(Field::class);
+
+    $fieldAttribute = $attributes[0]->newInstance();
+
+    expect($fieldAttribute)
+        ->position->toBe(1)
+        ->length->toBe(2);
 });

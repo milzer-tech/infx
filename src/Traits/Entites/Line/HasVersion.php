@@ -3,6 +3,7 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Enums\InfxVersion;
 
 trait HasVersion
 {
@@ -12,14 +13,13 @@ trait HasVersion
     #[Field(
         position: 1,
         length: 2,
-        validationRules: ['int', 'min:1', 'max:2']
     )]
-    protected string $version = '01';
+    protected InfxVersion $version = InfxVersion::Second;
 
     /**
      * Get the version of the Line.
      */
-    public function getVersion(): string
+    public function getVersion(): InfxVersion
     {
         return $this->version;
     }
@@ -27,9 +27,9 @@ trait HasVersion
     /**
      * Set the version of the Line.
      */
-    public function setVersion(int $version): static
+    public function setVersion(InfxVersion $version): static
     {
-        $this->version = $version === 2 ? '01' : '00';
+        $this->version = $version;
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace Milzer\Infx\Traits\Entites\Line;
 
+use BackedEnum;
 use Carbon\Carbon;
 use Milzer\Infx\Attributes\Field;
 use ReflectionException;
@@ -47,10 +48,16 @@ trait LineFormatter
         $result = '';
 
         foreach ($properties as $property) {
+            if($property['value'] instanceof Carbon){
+                $value = $property['value']->format('d.m.Y');
+            }elseif ($property['value'] instanceof BackedEnum){
+                $value = $property['value']->value;
+            }else{
+                $value = strval($property['value']);
+            }
+
             $result .= str_pad(
-                string: $property['value'] instanceof Carbon
-                    ? $property['value']->format('d.m.Y')
-                    : strval($property['value']),
+                string: $value,
                 length: $property['field']->length,
             );
         }
