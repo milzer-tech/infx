@@ -14,7 +14,7 @@ trait HasVersion
         length: 2,
         validationRules: ['int', 'min:1', 'max:2']
     )]
-    protected string $version;
+    protected string $version = '01';
 
     /**
      * Get the version of the Line.
