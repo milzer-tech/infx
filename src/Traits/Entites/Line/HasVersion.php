@@ -12,7 +12,7 @@ trait HasVersion
     #[Field(
         position: 1,
         length: 2,
-        validationRules: ['required', 'int', 'min:1', 'max:2']
+        validationRules: ['int', 'min:1', 'max:2']
     )]
     protected string $version;
 

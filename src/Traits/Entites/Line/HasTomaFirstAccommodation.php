@@ -12,7 +12,7 @@ trait HasTomaFirstAccommodation
     #[Field(
         position: 64,
         length: 6,
-        validationRules: ['required', 'string', 'min:1', 'max:6']
+        validationRules: ['string', 'min:1', 'max:6']
     )]
     protected string $tomaFirstAccommodation;
 

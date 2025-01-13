@@ -12,7 +12,7 @@ trait HasFirstLongText
     #[Field(
         position: 68,
         length: 80,
-        validationRules: ['required', 'string', 'min:1', 'max:80']
+        validationRules: ['string', 'min:1', 'max:80']
     )]
     protected string $firstLongText;
 

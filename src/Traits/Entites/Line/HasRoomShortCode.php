@@ -12,7 +12,7 @@ trait HasRoomShortCode
     #[Field(
         position: 47,
         length: 2,
-        validationRules: ['required', 'string', 'min:1', 'max:2']
+        validationRules: ['string', 'min:1', 'max:2']
     )]
     protected string $roomShortCode;
 

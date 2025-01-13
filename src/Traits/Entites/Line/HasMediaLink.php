@@ -13,7 +13,7 @@ trait HasMediaLink
     #[Field(
         position: 78,
         length: 160,
-        validationRules: ['required', 'string', 'min:1', 'max:160']
+        validationRules: ['string', 'min:1', 'max:160']
     )]
     protected string $mediaLink;
 

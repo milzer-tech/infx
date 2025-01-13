@@ -12,7 +12,7 @@ trait HasHotelCategory
     #[Field(
         position: 46,
         length: 3,
-        validationRules: ['required', 'string', 'min:1', 'max:3']
+        validationRules: ['string', 'min:1', 'max:3']
     )]
     protected string $hotelCategory;
 
