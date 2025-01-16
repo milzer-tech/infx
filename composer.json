@@ -1,5 +1,5 @@
 {
-    "name": "milzer-digital/infx",
+    "name": "milzer/infx",
     "description": "infx is a specific format using in Germany tourism industry.",
     "keywords": ["php", "infx", "package"],
     "license": "MIT",
