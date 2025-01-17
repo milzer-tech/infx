@@ -13,10 +13,10 @@ This package provides a wonderful **PHP Skeleton** to start building your next p
 
 > **Requires [PHP 8.3+](https://php.net/releases/)**
 
-⚡️ Create your package using [Composer](https://getcomposer.org):
+⚡️ Install the package via [Composer](https://getcomposer.org):
 
 ```bash
-composer create-project nunomaduro/skeleton-php --prefer-source PackageName
+composer require milzer/infx:dev-main
 ```
 
 🧹 Keep a modern codebase with **Pint**:
