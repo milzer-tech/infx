@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Milzer\Infx\Entities;
 
 use BackedEnum;
@@ -112,7 +114,6 @@ class Line implements Stringable
     use LineHelper\LineFormatter;
     use LineHelper\Validator;
 
-    //
     /**
      * The default values for the properties.
      *
@@ -120,6 +121,9 @@ class Line implements Stringable
      */
     private static array $defaultValues = [];
 
+    /**
+     * Create a new instance of Line.
+     */
     final public function __construct()
     {
         $this->assignDefaultValues();
