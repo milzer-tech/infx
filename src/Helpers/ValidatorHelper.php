@@ -22,12 +22,27 @@ class ValidatorHelper
      */
     public static function validate(array $data, array $rules, array $messages = []): Validator
     {
-        $fileLoader = new FileLoader(new Filesystem, __DIR__.'/../../vendor/illuminate/translation/lang');
+        $translationPath = self::findTranslationPath();
+
+        $fileLoader = new FileLoader(new Filesystem, $translationPath);
 
         $translator = new Translator($fileLoader, 'en');
 
         $validator = new Factory($translator);
 
         return $validator->make($data, $rules, $messages);
+    }
+
+
+    /**
+     * Find the correct translation path.
+     */
+    private static function findTranslationPath(): string
+    {
+        $vendorPath = dirname(__DIR__, 3) . '/vendor/illuminate/translation/lang';
+
+        return is_dir($vendorPath)
+            ? $vendorPath
+            : __DIR__ . '/../../vendor/illuminate/translation/lang';
     }
 }
