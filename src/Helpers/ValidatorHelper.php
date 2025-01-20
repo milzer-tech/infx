@@ -39,10 +39,17 @@ class ValidatorHelper
      */
     private static function findTranslationPath(): string
     {
-        $vendorPath = dirname(__DIR__, 3) . '/vendor/illuminate/translation/lang';
+        $frameworkLangPath = dirname(__DIR__,5) . '/vendor/laravel/framework/src/Illuminate/Translation/lang';
 
-        return is_dir($vendorPath)
-            ? $vendorPath
-            : __DIR__ . '/../../vendor/illuminate/translation/lang';
+        if (is_dir($frameworkLangPath)) {
+            return $frameworkLangPath;
+        }
+
+        $vendorLangPath = dirname(__DIR__, 3) . '/vendor/illuminate/translation/lang';
+        if (is_dir($vendorLangPath)) {
+            return $vendorLangPath;
+        }
+
+        return __DIR__ . '/../../vendor/illuminate/translation/lang';
     }
 }
