@@ -12,7 +12,7 @@ trait HasArrivalAirportOutbound
     #[Field(
         position: 10,
         length: 3,
-        validationRules: ['required', 'string', 'min:1', 'max:3'],
+        validationRules: ['string', 'min:1', 'max:3'],
     )]
     protected string $arrivalAirportOutbound;
 

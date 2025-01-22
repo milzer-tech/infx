@@ -12,7 +12,7 @@ trait HasTomaFirstPerformance
     #[Field(
         position: 60,
         length: 17,
-        validationRules: ['required', 'string', 'min:1', 'max:17']
+        validationRules: ['string', 'min:1', 'max:17']
     )]
     protected string $tomaFirstPerformance;
 
