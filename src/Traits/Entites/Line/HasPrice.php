@@ -20,7 +20,7 @@ trait HasPrice
        //     'regex' => 'The format of the price must be between 0.01 and 9999999999.99.',
         ]
     )]
-    protected float $price;
+    protected string $price;
 
     /**
      * Get the price of the line.
