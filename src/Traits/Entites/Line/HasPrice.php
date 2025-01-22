@@ -33,7 +33,7 @@ trait HasPrice
     /**
      * Set the currency of the line.
      */
-    public function setPrice(float $price): static
+    public function setPrice(string $price): static
     {
         $this->price = $price;
 
