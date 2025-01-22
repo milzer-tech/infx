@@ -12,7 +12,7 @@ trait HasPartner
     #[Field(
         position: 6,
         length: 9,
-        validationRules: ['required', 'string', 'min:1', 'max:9']
+        validationRules: ['string', 'min:1', 'max:9']
     )]
     protected string $partner;
 

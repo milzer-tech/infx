@@ -12,7 +12,7 @@ trait HasTomaTravelMode
     #[Field(
         position: 54,
         length: 4,
-        validationRules: ['required', 'string', 'min:1', 'max:4']
+        validationRules: ['string', 'min:1', 'max:4']
     )]
     protected string $tomaTravelMode;
 
