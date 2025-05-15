@@ -12,7 +12,7 @@ trait HasFreeFlightSeats
     #[Field(
         position: 74,
         length: 3,
-        validationRules: ['required', 'int', 'min:1', 'max:999']
+        validationRules: ['int', 'min:1', 'max:999']
     )]
     protected int $freeFlightSeats;
 
