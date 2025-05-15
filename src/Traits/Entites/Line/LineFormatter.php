@@ -35,6 +35,8 @@ trait LineFormatter
             ];
         }
 
+        ksort($properties);
+
         return $this->createResult($properties);
     }
 
@@ -48,11 +50,11 @@ trait LineFormatter
         $result = '';
 
         foreach ($properties as $property) {
-            if($property['value'] instanceof Carbon){
+            if ($property['value'] instanceof Carbon) {
                 $value = $property['value']->format('d.m.Y');
-            }elseif ($property['value'] instanceof BackedEnum){
+            } elseif ($property['value'] instanceof BackedEnum) {
                 $value = $property['value']->value;
-            }else{
+            } else {
                 $value = strval($property['value']);
             }
 
