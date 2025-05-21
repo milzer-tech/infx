@@ -12,7 +12,7 @@ trait HasOfferNumber
     #[Field(
         position: 5,
         length: 10,
-        validationRules: ['required', 'string', 'min:1', 'max:5']
+        validationRules: ['string', 'min:1', 'max:10']
     )]
     protected string $offerNumber;
 
