@@ -17,5 +17,5 @@ trait HasExpected
         length: 1,
         validationRules: ['string', 'min:1', 'max:1']
     )]
-    protected string $expected = 'v';
+    protected string $expected = 'V';
 }

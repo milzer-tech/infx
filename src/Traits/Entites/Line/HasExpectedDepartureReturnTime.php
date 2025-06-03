@@ -17,5 +17,5 @@ trait HasExpectedDepartureReturnTime
         length: 1,
         validationRules: ['string', 'min:1', 'max:1']
     )]
-    protected string $expectedDepartureReturnTime = 'v';
+    protected string $expectedDepartureReturnTime = 'V';
 }
