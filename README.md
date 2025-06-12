@@ -1,4 +1,6 @@
-![milzer GmbH](https://milzer.de/assets/logo.svg)
+<p align="center">
+ <img src="https://milzer.de/wp-content/uploads/2025/02/milzer-logo.svg" width="200" />
+</p>
 
 # INFX Package for Travel Offers
 
