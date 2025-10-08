@@ -1,6 +1,6 @@
 <?php
 
-namespace Milzer\Infx\Traits\Entites\Line;
+namespace Milzer\Infx\Traits\Entites\Line\Position04;
 
 use Milzer\Infx\Attributes\Field;
 
