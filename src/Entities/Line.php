@@ -28,13 +28,12 @@ class Line implements Stringable
     use LineHelper\HasCatalogName;
     use LineHelper\HasCatalogPage;
     use LineHelper\HasCurrency;
-    use LineHelper\HasDepartureAirportOutbound;
     use LineHelper\HasDepartureAirportReturn;
     use LineHelper\HasDepartureOutboundTime;
     use LineHelper\HasDepartureReturnTime;
-
     //    not documented
     use LineHelper\HasDestinationLocation;
+
     use LineHelper\HasEquipment;
     use LineHelper\HasExpected;
     use LineHelper\HasExpectedDepartureReturnTime;
@@ -115,6 +114,7 @@ class Line implements Stringable
     use LineHelper\Position06Partner;
     use LineHelper\Position07StartDate;
     use LineHelper\Position08EndDate;
+    use LineHelper\Position09DepartureAirportOutbound;
     use LineHelper\Validator;
 
     /**

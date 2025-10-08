@@ -4,7 +4,7 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 
-trait HasDepartureAirportOutbound
+trait Position09DepartureAirportOutbound
 {
     /**
      * The departure airport outbound.
