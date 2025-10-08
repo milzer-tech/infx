@@ -16,18 +16,17 @@ class Line implements Stringable
     use LineHelper\HasAirlineOutbound;
     use LineHelper\HasAirlineReturn;
     use LineHelper\HasArrivalAirportReturn;
+
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalOutboundTim;
 
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalReturnTime;
-
     use LineHelper\HasBoardCode;
     use LineHelper\HasBoardDescription;
     use LineHelper\HasCatalogName;
     use LineHelper\HasCatalogPage;
     use LineHelper\HasCurrency;
-    use LineHelper\HasDepartureAirportReturn;
     use LineHelper\HasDepartureOutboundTime;
     use LineHelper\HasDepartureReturnTime;
     //    not documented
@@ -115,6 +114,7 @@ class Line implements Stringable
     use LineHelper\Position08EndDate;
     use LineHelper\Position09DepartureAirportOutbound;
     use LineHelper\Position10ArrivalAirportOutbound;
+    use LineHelper\Position11DepartureAirportReturn;
     use LineHelper\Validator;
 
     /**
