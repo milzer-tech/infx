@@ -4,7 +4,7 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 
-trait HasPartner
+trait Position06Partner
 {
     /**
      * The offer number.
