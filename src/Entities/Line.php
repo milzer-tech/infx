@@ -67,15 +67,16 @@ class Line implements Stringable
     use LineHelper\HasReturnFlightNumber;
     use LineHelper\HasRoomDescription;
     use LineHelper\HasRoomShortCode;
+
     //     [+/]-/% als Prefix
     use LineHelper\HasSecondChildAgeFrom;
-
     use LineHelper\HasSecondChildAgeTo;
     use LineHelper\HasSecondChildPrice;
+
     //     not documented
     use LineHelper\HasSecondLeer;
-
     use LineHelper\HasSecondLongText;
+
     //     TODO : Check with format. 201.29
     use LineHelper\HasSeniorPrice;
 
@@ -85,8 +86,6 @@ class Line implements Stringable
     //
     //     [+/]-/% als Prefix//
     use LineHelper\HasSpecialDiscount;
-
-    use LineHelper\HasStartDate;
     use LineHelper\HasTitleInfo;
     //
     //     default value ??
@@ -115,6 +114,7 @@ class Line implements Stringable
     use LineHelper\Position04Leer;
     use LineHelper\Position05OfferNumber;
     use LineHelper\Position06Partner;
+    use LineHelper\Position07StartDate;
     use LineHelper\Validator;
 
     /**
