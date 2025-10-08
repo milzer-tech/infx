@@ -13,7 +13,6 @@ use Stringable;
 class Line implements Stringable
 {
     use LineHelper\HasAdditionalInformation;
-    use LineHelper\HasAirlineOutbound;
     use LineHelper\HasAirlineReturn;
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalOutboundTim;
@@ -115,6 +114,7 @@ class Line implements Stringable
     use LineHelper\Position10ArrivalAirportOutbound;
     use LineHelper\Position11DepartureAirportReturn;
     use LineHelper\Position12ArrivalAirportReturn;
+    use LineHelper\Position13AirlineOutbound;
     use LineHelper\Validator;
 
     /**
