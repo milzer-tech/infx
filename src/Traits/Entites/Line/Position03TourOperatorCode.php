@@ -1,10 +1,10 @@
 <?php
 
-namespace Milzer\Infx\Traits\Entites\Line\Position03;
+namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 
-trait HasTourOperatorCode
+trait Position03TourOperatorCode
 {
     /**
      * The tour operator code.

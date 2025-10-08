@@ -1,10 +1,10 @@
 <?php
 
-namespace Milzer\Infx\Traits\Entites\Line\Position02;
+namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 
-trait HasSentenceFormat
+trait Position02SentenceFormat
 {
     /**
      * The format of the sentence.

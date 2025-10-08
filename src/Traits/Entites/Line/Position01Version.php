@@ -1,11 +1,11 @@
 <?php
 
-namespace Milzer\Infx\Traits\Entites\Line\Position01;
+namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Enums\InfxVersion;
 
-trait HasVersion
+trait Position01Version
 {
     /**
      * The version of NFIX.
