@@ -4,7 +4,7 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 
-trait HasAirlineReturn
+trait Position14AirlineReturn
 {
     /**
      * The airline Return.
