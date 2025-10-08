@@ -5,7 +5,7 @@ namespace Milzer\Infx\Traits\Entites\Line;
 use Carbon\Carbon;
 use Milzer\Infx\Attributes\Field;
 
-trait HasEndDate
+trait Position08EndDate
 {
     /**
      * The end date.
