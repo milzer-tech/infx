@@ -28,5 +28,6 @@ it('has the correct Field attribute for sentenceFormat property', function (): v
     expect($fieldAttribute)
         ->position->toBe(2)
         ->length->toBe(1)
-        ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:1']);
+        ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:1'])
+        ->validationMessages->toEqualCanonicalizing([]);
 });

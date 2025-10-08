@@ -23,5 +23,6 @@ it('has the correct Field attribute for tourOperatorCode property', function ():
     expect($fieldAttribute)
         ->position->toBe(3)
         ->length->toBe(5)
-        ->validationRules->toEqualCanonicalizing(['required', 'string', 'min:1', 'max:5']);
+        ->validationRules->toEqualCanonicalizing(['required', 'string', 'min:1', 'max:5'])
+        ->validationMessages->toEqualCanonicalizing([]);
 });

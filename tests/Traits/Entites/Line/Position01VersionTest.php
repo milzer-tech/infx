@@ -28,5 +28,7 @@ it('has the correct Field attribute for version property', function (): void {
 
     expect($fieldAttribute)
         ->position->toBe(1)
-        ->length->toBe(2);
+        ->length->toBe(2)
+        ->validationRules->toEqualCanonicalizing([])
+        ->validationMessages->toEqualCanonicalizing([]);
 });
