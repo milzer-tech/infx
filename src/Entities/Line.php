@@ -13,12 +13,12 @@ use Stringable;
 class Line implements Stringable
 {
     use LineHelper\HasAdditionalInformation;
+
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalOutboundTim;
 
     // TODO : Check with simon. it's not on the documentation.
     use LineHelper\HasArrivalReturnTime;
-
     use LineHelper\HasBoardCode;
     use LineHelper\HasBoardDescription;
     use LineHelper\HasCatalogName;
@@ -26,15 +26,15 @@ class Line implements Stringable
     use LineHelper\HasCurrency;
     use LineHelper\HasDepartureOutboundTime;
     use LineHelper\HasDepartureReturnTime;
+
     //    not documented
     use LineHelper\HasDestinationLocation;
-
     use LineHelper\HasEquipment;
     use LineHelper\HasExpected;
     use LineHelper\HasExpectedDepartureReturnTime;
+
     //   TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\HasFirstChildAgeFrom;
-
     use LineHelper\HasFirstChildAgeTo;
     use LineHelper\HasFirstChildPrice;
     use LineHelper\HasFirstLongText;
@@ -42,9 +42,9 @@ class Line implements Stringable
     use LineHelper\HasFreeHotelPlaces;
     use LineHelper\HasHotelCategory;
     use LineHelper\HasHotelName;
+
     //     TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\HasInfantPrice;
-
     use LineHelper\HasmaximumAdultOccupancy;
     use LineHelper\HasMaximumChildrenOccupancy;
     use LineHelper\HasMaximumOccupancy;
@@ -60,15 +60,16 @@ class Line implements Stringable
     use LineHelper\HasReturnFlightNumber;
     use LineHelper\HasRoomDescription;
     use LineHelper\HasRoomShortCode;
+
     //     [+/]-/% als Prefix
     use LineHelper\HasSecondChildAgeFrom;
-
     use LineHelper\HasSecondChildAgeTo;
     use LineHelper\HasSecondChildPrice;
+
     //     not documented
     use LineHelper\HasSecondLeer;
-
     use LineHelper\HasSecondLongText;
+
     //     TODO : Check with format. 201.29
     use LineHelper\HasSeniorPrice;
 
@@ -78,12 +79,11 @@ class Line implements Stringable
     //
     //     [+/]-/% als Prefix//
     use LineHelper\HasSpecialDiscount;
-
     use LineHelper\HasTitleInfo;
+
     //
     //     default value ??
     use LineHelper\HasTomaAction;
-
     use LineHelper\HasTomaFirstAccommodation;
     use LineHelper\HasTomaFirstPerformance;
     use LineHelper\HasTomaFirstRequirement;
