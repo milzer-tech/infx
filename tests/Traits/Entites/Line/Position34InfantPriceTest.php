@@ -1,7 +1,7 @@
 <?php
 
-use Milzer\\Infx\\Attributes\\Field;
-use Milzer\\Infx\\Entities\\Line;
+use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Entities\Line;
 
 it('sets and gets the infant price', function (): void {
     $line = Line::make()->setInfantPrice(123.45);

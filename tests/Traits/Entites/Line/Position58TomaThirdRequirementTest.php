@@ -1,7 +1,7 @@
 <?php
 
-use Milzer\\Infx\\Attributes\\Field;
-use Milzer\\Infx\\Entities\\Line;
+use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Entities\Line;
 
 it('sets and gets the toma third requirement', function (): void {
     $line = Line::make()->setTomaThirdRequirement('REQ');

@@ -1,7 +1,7 @@
 <?php
 
-use Milzer\\Infx\\Attributes\\Field;
-use Milzer\\Infx\\Entities\\Line;
+use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Entities\Line;
 
 it('sets and gets the hotel category', function (): void {
     $line = Line::make()->setHotelCategory('5*');

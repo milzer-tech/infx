@@ -1,7 +1,6 @@
 <?php
 
-use Milzer\\Infx\\Attributes\\Field;
-use Milzer\\Infx\\Entities\\Line;
+use Milzer\Infx\Attributes\Field;
 
 it('has the correct Field attribute for specialDiscount property', function (): void {
     $attributes = getAttributesOfLineProperty('specialDiscount');
