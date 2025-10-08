@@ -59,7 +59,6 @@ class Line implements Stringable
     use LineHelper\HasMinimumAdultOccupancy;
     use LineHelper\HasMinimumOccupancy;
     use LineHelper\HasOccupancy;
-    use LineHelper\HasOfferNumber;
     use LineHelper\HasOutboundFlightIdentification;
     use LineHelper\HasOutboundFlightNumber;
     use LineHelper\HasPartner;
@@ -115,6 +114,7 @@ class Line implements Stringable
     use LineHelper\Position02SentenceFormat;
     use LineHelper\Position03TourOperatorCode;
     use LineHelper\Position04Leer;
+    use LineHelper\Position05OfferNumber;
     use LineHelper\Validator;
 
     /**
