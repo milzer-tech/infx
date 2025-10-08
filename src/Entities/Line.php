@@ -82,7 +82,6 @@ class Line implements Stringable
 
     //     TODO : Check with format. 201.29
     use LineHelper\HasSeniorPrice;
-    use LineHelper\HasSentenceFormat;
 
     //     not documented
     use LineHelper\HasSpecialChildrenDiscount;
@@ -110,11 +109,12 @@ class Line implements Stringable
     use LineHelper\HasTomaThirdPerformance;
     use LineHelper\HasTomaThirdRequirement;
     use LineHelper\HasTomaTravelMode;
-    use LineHelper\HasTourOperatorCode;
     use LineHelper\HasTravelType;
     use LineHelper\HasTravelTypeDescription;
-    use LineHelper\HasVersion;
     use LineHelper\LineFormatter;
+    use LineHelper\Position01\HasVersion;
+    use LineHelper\Position02\HasSentenceFormat;
+    use LineHelper\Position03\HasTourOperatorCode;
     use LineHelper\Validator;
 
     /**
