@@ -59,7 +59,7 @@ trait LineFormatter
             }
 
             $result .= mb_str_pad(
-                string: $value,
+                string: strval($value),
                 length: $property['field']->length,
             );
         }

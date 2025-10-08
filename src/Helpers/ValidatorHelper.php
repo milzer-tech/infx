@@ -33,23 +33,22 @@ class ValidatorHelper
         return $validator->make($data, $rules, $messages);
     }
 
-
     /**
      * Find the correct translation path.
      */
     private static function findTranslationPath(): string
     {
-        $frameworkLangPath = dirname(__DIR__,5) . '/vendor/laravel/framework/src/Illuminate/Translation/lang';
+        $frameworkLangPath = dirname(__DIR__, 5).'/vendor/laravel/framework/src/Illuminate/Translation/lang';
 
         if (is_dir($frameworkLangPath)) {
             return $frameworkLangPath;
         }
 
-        $vendorLangPath = dirname(__DIR__, 3) . '/vendor/illuminate/translation/lang';
+        $vendorLangPath = dirname(__DIR__, 3).'/vendor/illuminate/translation/lang';
         if (is_dir($vendorLangPath)) {
             return $vendorLangPath;
         }
 
-        return __DIR__ . '/../../vendor/illuminate/translation/lang';
+        return __DIR__.'/../../vendor/illuminate/translation/lang';
     }
 }

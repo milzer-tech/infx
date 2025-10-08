@@ -4,18 +4,18 @@ use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line; // Assuming `Line` uses `HasVersion` trait
 use Milzer\Infx\Enums\InfxVersion;
 
-it('gets the default version', function () {
+it('gets the default version', function (): void {
     expect(Line::make()->getVersion())
         ->toBe(InfxVersion::Second);
 });
 
-it('sets the version to First', function () {
+it('sets the version to First', function (): void {
     $line = Line::make()->setVersion(InfxVersion::First);
 
     expect($line->getVersion())->toBe(InfxVersion::First);
 });
 
-it('has the correct Field attribute for version property', function () {
+it('has the correct Field attribute for version property', function (): void {
     $reflectionClass = new ReflectionClass(Line::class);
     $property = $reflectionClass->getProperty('version');
     $attributes = $property->getAttributes(Field::class);

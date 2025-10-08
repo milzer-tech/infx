@@ -69,30 +69,30 @@ class Line implements Stringable
     use LineHelper\HasReturnFlightIdentification;
     use LineHelper\HasReturnFlightNumber;
     use LineHelper\HasRoomDescription;
-
     use LineHelper\HasRoomShortCode;
+
     //     [+/]-/% als Prefix
     use LineHelper\HasSecondChildAgeFrom;
     use LineHelper\HasSecondChildAgeTo;
-
     use LineHelper\HasSecondChildPrice;
+
     //     not documented
     use LineHelper\HasSecondLeer;
-
     use LineHelper\HasSecondLongText;
+
     //     TODO : Check with format. 201.29
     use LineHelper\HasSeniorPrice;
-
     use LineHelper\HasSentenceFormat;
 
     //     not documented
     use LineHelper\HasSpecialChildrenDiscount;
+
     //
     //     [+/]-/% als Prefix//
     use LineHelper\HasSpecialDiscount;
     use LineHelper\HasStartDate;
-
     use LineHelper\HasTitleInfo;
+
     //
     //     default value ??
     use LineHelper\HasTomaAction;

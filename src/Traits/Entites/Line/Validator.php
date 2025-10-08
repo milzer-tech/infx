@@ -13,7 +13,7 @@ trait Validator
     /**
      * Validate the required property.
      *
-     * @param  array<int, ReflectionProperty>  $reflectionProperties
+     * @param  array<int|string, ReflectionProperty>  $reflectionProperties
      *
      * @throws ReflectionException
      */
