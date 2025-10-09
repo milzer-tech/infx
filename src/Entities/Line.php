@@ -31,10 +31,16 @@ class Line implements Stringable
     use LineHelper\Position16ReturnFlightIdentification;
     use LineHelper\Position17DepartureOutboundTime;
     use LineHelper\Position18Expected;
-    use LineHelper\Position19ArrivalOutboundTim;    // TODO : Check with simon. it's not on the documentation.
+    use LineHelper\Position19ArrivalOutboundTim;
+
+    // TODO : Check with simon. it's not on the documentation.
+
     use LineHelper\Position20DepartureReturnTime;
     use LineHelper\Position21ExpectedDepartureReturnTime;
-    use LineHelper\Position22ArrivalReturnTime; // TODO : Check with simon. it's not on the documentation.
+    use LineHelper\Position22ArrivalReturnTime;
+
+    // TODO : Check with simon. it's not on the documentation.
+
     use LineHelper\Position23OutboundFlightNumber;
     use LineHelper\Position24ReturnFlightNumber;
     use LineHelper\Position25Occupancy;
@@ -45,18 +51,42 @@ class Line implements Stringable
     use LineHelper\Position30MaximumAdultOccupancy;
     use LineHelper\Position31Currency;
     use LineHelper\Position32Price;
-    use LineHelper\Position33SeniorPrice;   //     TODO : Check with format. 201.29
-    use LineHelper\Position34InfantPrice;  //     TODO : Check with format. [+/]-/% als Prefix
-    use LineHelper\Position35FirstChildAgeFrom; //   TODO : Check with format. [+/]-/% als Prefix
+    use LineHelper\Position33SeniorPrice;
+
+    //     TODO : Check with format. 201.29
+
+    use LineHelper\Position34InfantPrice;
+
+    //     TODO : Check with format. [+/]-/% als Prefix
+
+    use LineHelper\Position35FirstChildAgeFrom;
+
+    //   TODO : Check with format. [+/]-/% als Prefix
+
     use LineHelper\Position36FirstChildAgeTo;
     use LineHelper\Position37FirstChildPrice;
-    use LineHelper\Position38SecondChildAgeFrom;  //     [+/]-/% als Prefix
+    use LineHelper\Position38SecondChildAgeFrom;
+
+    //     [+/]-/% als Prefix
+
     use LineHelper\Position39SecondChildAgeTo;
     use LineHelper\Position40SecondChildPrice;
-    use LineHelper\Position41SpecialDiscount;    //     [+/]-/% als Prefix//
-    use LineHelper\Position42SpecialChildrenDiscount;   //     not documented
-    use LineHelper\Position43SecondLeer;    //     not documented
-    use LineHelper\Position44DestinationLocation; //    not documented
+    use LineHelper\Position41SpecialDiscount;
+
+    //     [+/]-/% als Prefix//
+
+    use LineHelper\Position42SpecialChildrenDiscount;
+
+    //     not documented
+
+    use LineHelper\Position43SecondLeer;
+
+    //     not documented
+
+    use LineHelper\Position44DestinationLocation;
+
+    //    not documented
+
     use LineHelper\Position45HotelName;
     use LineHelper\Position46HotelCategory;
     use LineHelper\Position47RoomShortCode;
@@ -67,7 +97,10 @@ class Line implements Stringable
     use LineHelper\Position52TravelTypeDescription;
     use LineHelper\Position53TomaOrganizer;
     use LineHelper\Position54TomaTravelMode;
-    use LineHelper\Position55TomaAction;    //     default value ??
+    use LineHelper\Position55TomaAction;
+
+    //     default value ??
+
     use LineHelper\Position56TomaFirstRequirement;
     use LineHelper\Position57TomaSecondRequirement;
     use LineHelper\Position58TomaThirdRequirement;
@@ -129,6 +162,22 @@ class Line implements Stringable
             }
 
             self::$defaultValues[$property] = $value;
+        }
+    }
+
+    /**
+     * Unset the default values for the properties.
+     */
+    public static function unsetDefaultValues(string ...$properties): void
+    {
+        foreach ($properties as $property) {
+            if (! property_exists(static::class, $property)) {
+                throw new InvalidArgumentException("The property $property does not exist on ".static::class);
+            }
+        }
+
+        foreach ($properties as $property) {
+            unset(self::$defaultValues[$property]);
         }
     }
 
