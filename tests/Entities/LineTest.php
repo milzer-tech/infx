@@ -19,7 +19,10 @@ it('__toString delegates to toString', function (): void {
         ->setTomaAction('OK');
 
     // When required fields are set, __toString should equal toString
-    expect((string) $line)->toBe($line->toString());
+    expect((string) $line)
+        ->toBe($line->toString())
+        ->and(mb_strlen((string) $line))
+        ->toBe(985);
 });
 
 it('setDefaultValues assigns defaults on construction (scalar)', function (): void {
