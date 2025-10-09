@@ -21,6 +21,6 @@ it('has the correct Field attribute for price property', function (): void {
     expect($fieldAttribute)
         ->position->toBe(32)
         ->length->toBe(12)
-        ->validationRules->toEqualCanonicalizing(['required'])
+        ->validationRules->toEqualCanonicalizing([])
         ->validationMessages->toEqualCanonicalizing([]);
 });

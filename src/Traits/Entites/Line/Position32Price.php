@@ -11,14 +11,7 @@ trait Position32Price
      */
     #[Field(
         position: 32,
-        length: 12,
-        validationRules: [
-            'required',
-            //       'regex:/^(?!0(\.0{2})?$)(\d{1,10}(\.\d{1,2})?)$/',
-        ],
-        validationMessages: [
-            //     'regex' => 'The format of the price must be between 0.01 and 9999999999.99.',
-        ]
+        length: 12
     )]
     protected string $price;
 
