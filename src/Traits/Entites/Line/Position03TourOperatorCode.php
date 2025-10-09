@@ -12,7 +12,7 @@ trait Position03TourOperatorCode
     #[Field(
         position: 3,
         length: 5,
-        validationRules: ['required', 'string', 'min:1', 'max:5'] // Todo: "required" check it with Simon
+        validationRules: ['string', 'min:1', 'max:5']
     )]
     protected string $tourOperatorCode;
 
