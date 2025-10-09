@@ -32,7 +32,7 @@ it('tests setDefaultValues and unsetDefaultValues', function (): void {
 
     Line::unsetDefaultValues('partner');
 
-    expect(fn () => Line::make()->getPartner())->toThrow(Error::class);
+    expect(fn (): string => Line::make()->getPartner())->toThrow(Error::class);
 });
 
 it('setDefaultValues throws when property does not exist', function (): void {
