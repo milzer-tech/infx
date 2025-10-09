@@ -13,7 +13,6 @@ trait Position07StartDate
     #[Field(
         position: 7,
         length: 10,
-        validationRules: ['required']
     )]
     protected Carbon $startDate;
 

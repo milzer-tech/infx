@@ -23,6 +23,6 @@ it('has the correct Field attribute for start date property', function (): void 
     expect($fieldAttribute)
         ->position->toBe(7)
         ->length->toBe(10)
-        ->validationRules->toEqualCanonicalizing(['required'])
+        ->validationRules->toEqualCanonicalizing([])
         ->validationMessages->toEqualCanonicalizing([]);
 });
