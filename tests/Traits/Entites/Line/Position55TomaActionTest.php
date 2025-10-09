@@ -21,6 +21,6 @@ it('has the correct Field attribute for tomaAction property', function (): void 
     expect($fieldAttribute)
         ->position->toBe(55)
         ->length->toBe(2)
-        ->validationRules->toEqualCanonicalizing(['required', 'string', 'min:1', 'max:2'])
+        ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:2'])
         ->validationMessages->toEqualCanonicalizing([]);
 });
