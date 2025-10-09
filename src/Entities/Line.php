@@ -31,14 +31,10 @@ class Line implements Stringable
     use LineHelper\Position16ReturnFlightIdentification;
     use LineHelper\Position17DepartureOutboundTime;
     use LineHelper\Position18Expected;
-
-    // TODO : Check with simon. it's not on the documentation.
-    use LineHelper\Position19ArrivalOutboundTim;
+    use LineHelper\Position19ArrivalOutboundTim;    // TODO : Check with simon. it's not on the documentation.
     use LineHelper\Position20DepartureReturnTime;
     use LineHelper\Position21ExpectedDepartureReturnTime;
-
-    // TODO : Check with simon. it's not on the documentation.
-    use LineHelper\Position22ArrivalReturnTime;
+    use LineHelper\Position22ArrivalReturnTime; // TODO : Check with simon. it's not on the documentation.
     use LineHelper\Position23OutboundFlightNumber;
     use LineHelper\Position24ReturnFlightNumber;
     use LineHelper\Position25Occupancy;
@@ -49,35 +45,18 @@ class Line implements Stringable
     use LineHelper\Position30MaximumAdultOccupancy;
     use LineHelper\Position31Currency;
     use LineHelper\Position32Price;
-
-    //     TODO : Check with format. 201.29
-    use LineHelper\Position33SeniorPrice;
-
-    //     TODO : Check with format. [+/]-/% als Prefix
-    use LineHelper\Position34InfantPrice;
-
-    //   TODO : Check with format. [+/]-/% als Prefix
-    use LineHelper\Position35FirstChildAgeFrom;
+    use LineHelper\Position33SeniorPrice;   //     TODO : Check with format. 201.29
+    use LineHelper\Position34InfantPrice;  //     TODO : Check with format. [+/]-/% als Prefix
+    use LineHelper\Position35FirstChildAgeFrom; //   TODO : Check with format. [+/]-/% als Prefix
     use LineHelper\Position36FirstChildAgeTo;
     use LineHelper\Position37FirstChildPrice;
-
-    //     [+/]-/% als Prefix
-    use LineHelper\Position38SecondChildAgeFrom;
+    use LineHelper\Position38SecondChildAgeFrom;  //     [+/]-/% als Prefix
     use LineHelper\Position39SecondChildAgeTo;
     use LineHelper\Position40SecondChildPrice;
-
-    //
-    //     [+/]-/% als Prefix//
-    use LineHelper\Position41SpecialDiscount;
-
-    //     not documented
-    use LineHelper\Position42SpecialChildrenDiscount;
-
-    //     not documented
-    use LineHelper\Position43SecondLeer;
-
-    //    not documented
-    use LineHelper\Position44DestinationLocation;
+    use LineHelper\Position41SpecialDiscount;    //     [+/]-/% als Prefix//
+    use LineHelper\Position42SpecialChildrenDiscount;   //     not documented
+    use LineHelper\Position43SecondLeer;    //     not documented
+    use LineHelper\Position44DestinationLocation; //    not documented
     use LineHelper\Position45HotelName;
     use LineHelper\Position46HotelCategory;
     use LineHelper\Position47RoomShortCode;
@@ -88,10 +67,7 @@ class Line implements Stringable
     use LineHelper\Position52TravelTypeDescription;
     use LineHelper\Position53TomaOrganizer;
     use LineHelper\Position54TomaTravelMode;
-
-    //
-    //     default value ??
-    use LineHelper\Position55TomaAction;
+    use LineHelper\Position55TomaAction;    //     default value ??
     use LineHelper\Position56TomaFirstRequirement;
     use LineHelper\Position57TomaSecondRequirement;
     use LineHelper\Position58TomaThirdRequirement;
