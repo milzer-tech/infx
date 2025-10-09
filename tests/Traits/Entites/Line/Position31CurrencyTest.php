@@ -21,6 +21,6 @@ it('has the correct Field attribute for currency property', function (): void {
     expect($fieldAttribute)
         ->position->toBe(31)
         ->length->toBe(3)
-        ->validationRules->toEqualCanonicalizing(['required', 'string', 'max:3'])
+        ->validationRules->toEqualCanonicalizing(['string', 'max:3'])
         ->validationMessages->toEqualCanonicalizing([]);
 });

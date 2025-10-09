@@ -12,7 +12,7 @@ trait Position31Currency
     #[Field(
         position: 31,
         length: 3,
-        validationRules: ['required', 'string', 'max:3'],
+        validationRules: ['string', 'max:3'],
     )]
     protected string $currency;
 
