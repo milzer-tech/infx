@@ -21,6 +21,6 @@ it('has the correct Field attribute for tomaOrganizer property', function (): vo
     expect($fieldAttribute)
         ->position->toBe(53)
         ->length->toBe(4)
-        ->validationRules->toEqualCanonicalizing(['required', 'string', 'min:1', 'max:4'])
+        ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:4'])
         ->validationMessages->toEqualCanonicalizing([]);
 });

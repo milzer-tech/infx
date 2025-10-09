@@ -12,7 +12,7 @@ trait Position53TomaOrganizer
     #[Field(
         position: 53,
         length: 4,
-        validationRules: ['required', 'string', 'min:1', 'max:4']
+        validationRules: ['string', 'min:1', 'max:4']
     )]
     protected string $tomaOrganizer;
 
