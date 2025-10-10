@@ -1,0 +1,36 @@
+<?php
+
+namespace Milzer\Infx\Traits\Entites\Line;
+
+use Milzer\Infx\Attributes\Field;
+
+trait Position04TourOperatorCode
+{
+    /**
+     * The tour operator code.
+     */
+    #[Field(
+        position: 4,
+        length: 5,
+        validationRules: ['string', 'min:1', 'max:5']
+    )]
+    protected string $tourOperatorCode;
+
+    /**
+     * Get the tour operator code of the Line.
+     */
+    public function getTourOperatorCode(): string
+    {
+        return $this->tourOperatorCode;
+    }
+
+    /**
+     * Set the tour operator code of the Line.
+     */
+    public function setTourOperatorCode(string $tourOperatorCode): static
+    {
+        $this->tourOperatorCode = $tourOperatorCode;
+
+        return $this;
+    }
+}

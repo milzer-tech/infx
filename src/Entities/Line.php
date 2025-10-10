@@ -14,116 +14,106 @@ class Line implements Stringable
 {
     use LineHelper\LineFormatter;
     use LineHelper\Position01Version;
-    use LineHelper\Position02SentenceFormat;
-    use LineHelper\Position03TourOperatorCode;
-    use LineHelper\Position04Leer;
-    use LineHelper\Position05OfferNumber;
-    use LineHelper\Position06Partner;
-    use LineHelper\Position07StartDate;
-    use LineHelper\Position08EndDate;
-    use LineHelper\Position09DepartureAirportOutbound;
-    use LineHelper\Position10ArrivalAirportOutbound;
-    use LineHelper\Position11DepartureAirportReturn;
-    use LineHelper\Position12ArrivalAirportReturn;
-    use LineHelper\Position13AirlineOutbound;
-    use LineHelper\Position14AirlineReturn;
-    use LineHelper\Position15OutboundFlightIdentification;
-    use LineHelper\Position16ReturnFlightIdentification;
-    use LineHelper\Position17DepartureOutboundTime;
-    use LineHelper\Position18Expected;
-    use LineHelper\Position19ArrivalOutboundTim;
-
-    // TODO : Check with simon. it's not on the documentation.
-
-    use LineHelper\Position20DepartureReturnTime;
-    use LineHelper\Position21ExpectedDepartureReturnTime;
-    use LineHelper\Position22ArrivalReturnTime;
-
-    // TODO : Check with simon. it's not on the documentation.
-
-    use LineHelper\Position23OutboundFlightNumber;
-    use LineHelper\Position24ReturnFlightNumber;
-    use LineHelper\Position25Occupancy;
-    use LineHelper\Position26MaximumChildrenOccupancy;
-    use LineHelper\Position27MinimumOccupancy;
-    use LineHelper\Position28MaximumOccupancy;
-    use LineHelper\Position29MinimumAdultOccupancy;
-    use LineHelper\Position30MaximumAdultOccupancy;
-    use LineHelper\Position31Currency;
-    use LineHelper\Position32Price;
-    use LineHelper\Position33SeniorPrice;
-
+    use LineHelper\Position03SentenceFormat;
+    use LineHelper\Position04TourOperatorCode;
+    use LineHelper\Position09Leer;
+    use LineHelper\Position100ReturnFlightNumber;
+    use LineHelper\Position104ccupancy;
+    use LineHelper\Position105MaximumChildrenOccupancy;
+    use LineHelper\Position106MinimumOccupancy;
+    use LineHelper\Position107MaximumOccupancy;
+    use LineHelper\Position108MinimumAdultOccupancy;
+    use LineHelper\Position109MaximumAdultOccupancy;
+    use LineHelper\Position110Currency;
+    use LineHelper\Position113Price;
+    use LineHelper\Position125SeniorPrice;
     //     TODO : Check with format. 201.29
 
-    use LineHelper\Position34InfantPrice;
-
+    use LineHelper\Position137InfantPrice;
     //     TODO : Check with format. [+/]-/% als Prefix
 
-    use LineHelper\Position35FirstChildAgeFrom;
-
+    use LineHelper\Position149FirstChildAgeFrom;
     //   TODO : Check with format. [+/]-/% als Prefix
 
-    use LineHelper\Position36FirstChildAgeTo;
-    use LineHelper\Position37FirstChildPrice;
-    use LineHelper\Position38SecondChildAgeFrom;
-
+    use LineHelper\Position151FirstChildAgeTo;
+    use LineHelper\Position153FirstChildPrice;
+    use LineHelper\Position15OfferNumber;
+    use LineHelper\Position165SecondChildAgeFrom;
     //     [+/]-/% als Prefix
 
-    use LineHelper\Position39SecondChildAgeTo;
-    use LineHelper\Position40SecondChildPrice;
-    use LineHelper\Position41SpecialDiscount;
+    use LineHelper\Position167SecondChildAgeTo;
+    use LineHelper\Position181SpecialDiscount;
 
     //     [+/]-/% als Prefix//
 
-    use LineHelper\Position42SpecialChildrenDiscount;
-
+    use LineHelper\Position182SpecialChildrenDiscount;
     //     not documented
 
-    use LineHelper\Position43SecondLeer;
-
+    use LineHelper\Position183SecondLeer;
     //     not documented
 
-    use LineHelper\Position44DestinationLocation;
-
+    use LineHelper\Position188DestinationLocation;
     //    not documented
 
-    use LineHelper\Position45HotelName;
-    use LineHelper\Position46HotelCategory;
-    use LineHelper\Position47RoomShortCode;
-    use LineHelper\Position48RoomDescription;
-    use LineHelper\Position49BoardCode;
-    use LineHelper\Position50BoardDescription;
-    use LineHelper\Position51TravelType;
-    use LineHelper\Position52TravelTypeDescription;
-    use LineHelper\Position53TomaOrganizer;
-    use LineHelper\Position54TomaTravelMode;
-    use LineHelper\Position55TomaAction;
-
+    use LineHelper\Position213HotelName;
+    use LineHelper\Position238HotelCategory;
+    use LineHelper\Position241RoomShortCode;
+    use LineHelper\Position243RoomDescription;
+    use LineHelper\Position25Partner;
+    use LineHelper\Position268BoardCode;
+    use LineHelper\Position270BoardDescription;
+    use LineHelper\Position295TravelType;
+    use LineHelper\Position297TravelTypeDescription;
+    use LineHelper\Position322TomaOrganizer;
+    use LineHelper\Position326TomaTravelMode;
+    use LineHelper\Position330TomaAction;
     //     default value ??
 
-    use LineHelper\Position56TomaFirstRequirement;
-    use LineHelper\Position57TomaSecondRequirement;
-    use LineHelper\Position58TomaThirdRequirement;
-    use LineHelper\Position59TomaFourthRequirement;
-    use LineHelper\Position60TomaFirstPerformance;
-    use LineHelper\Position61TomaSecondPerformance;
-    use LineHelper\Position62TomaThirdPerformance;
-    use LineHelper\Position63TomaFourthPerformance;
-    use LineHelper\Position64TomaFirstAccommodation;
-    use LineHelper\Position65TomaSecondAccommodation;
-    use LineHelper\Position66TomaThirdAccommodation;
-    use LineHelper\Position67TomaFourthAccommodation;
-    use LineHelper\Position68FirstLongText;
-    use LineHelper\Position69SecondLongText;
-    use LineHelper\Position70Equipment;
-    use LineHelper\Position71AdditionalInformation;
-    use LineHelper\Position72CatalogName;
-    use LineHelper\Position73CatalogPage;
-    use LineHelper\Position74FreeFlightSeats;
-    use LineHelper\Position75FreeHotelPlaces;
-    use LineHelper\Position76Priority;
-    use LineHelper\Position77TitleInfo;
-    use LineHelper\Position78MediaLink;
+    use LineHelper\Position332TomaFirstRequirement;
+    use LineHelper\Position335TomaSecondRequirement;
+    use LineHelper\Position338TomaThirdRequirement;
+    use LineHelper\Position341TomaFourthRequirement;
+    use LineHelper\Position344TomaFirstPerformance;
+    use LineHelper\Position34StartDate;
+    use LineHelper\Position361TomaSecondPerformance;
+    use LineHelper\Position378TomaThirdPerformance;
+    use LineHelper\Position395TomaFourthPerformance;
+    use LineHelper\Position40SecondChildPrice;
+    use LineHelper\Position412TomaFirstAccommodation;
+    use LineHelper\Position418TomaSecondAccommodation;
+    use LineHelper\Position424TomaThirdAccommodation;
+    use LineHelper\Position430TomaFourthAccommodation;
+    use LineHelper\Position436FirstLongText;
+    use LineHelper\Position44EndDate;
+    use LineHelper\Position516SecondLongText;
+    use LineHelper\Position54DepartureAirportOutbound;
+    use LineHelper\Position57ArrivalAirportOutbound;
+    use LineHelper\Position596Equipment;
+    use LineHelper\Position60DepartureAirportReturn;
+    use LineHelper\Position63ArrivalAirportReturn;
+    use LineHelper\Position66AirlineOutbound;
+    use LineHelper\Position676AdditionalInformation;
+    use LineHelper\Position69AirlineReturn;
+    use LineHelper\Position72OutboundFlightIdentification;
+    use LineHelper\Position756CatalogName;
+    use LineHelper\Position75ReturnFlightIdentification;
+    use LineHelper\Position78DepartureOutboundTime;
+    use LineHelper\Position796CatalogPage;
+    use LineHelper\Position800FreeFlightSeats;
+    use LineHelper\Position803FreeHotelPlaces;
+    use LineHelper\Position806Priority;
+    use LineHelper\Position808TitleInfo;
+    use LineHelper\Position826MediaLink;
+    use LineHelper\Position82Expected;
+    use LineHelper\Position83ArrivalOutboundTim;
+    // TODO : Check with simon. it's not on the documentation.
+
+    use LineHelper\Position87DepartureReturnTime;
+    use LineHelper\Position91ExpectedDepartureReturnTime;
+    use LineHelper\Position92ArrivalReturnTime;
+    // TODO : Check with simon. it's not on the documentation.
+
+    use LineHelper\Position96OutboundFlightNumber;
     use LineHelper\Validator;
 
     /**

@@ -19,7 +19,7 @@ it('has the correct Field attribute for tomaThirdPerformance property', function
     $fieldAttribute = $attributes[0]->newInstance();
 
     expect($fieldAttribute)
-        ->position->toBe(62)
+        ->position->toBe(378)
         ->length->toBe(17)
         ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:17'])
         ->validationMessages->toEqualCanonicalizing([]);

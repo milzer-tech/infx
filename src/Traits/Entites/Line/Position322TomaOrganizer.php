@@ -1,0 +1,36 @@
+<?php
+
+namespace Milzer\Infx\Traits\Entites\Line;
+
+use Milzer\Infx\Attributes\Field;
+
+trait Position322TomaOrganizer
+{
+    /**
+     * The TOMA organizer of the line.
+     */
+    #[Field(
+        position: 322,
+        length: 4,
+        validationRules: ['string', 'min:1', 'max:4']
+    )]
+    protected string $tomaOrganizer;
+
+    /**
+     * Get the TOMA organizer of the line.
+     */
+    public function getTomaOrganizer(): string
+    {
+        return $this->tomaOrganizer;
+    }
+
+    /**
+     * Set the TOMA organizer of the line.
+     */
+    public function setTomaOrganizer(string $value): static
+    {
+        $this->tomaOrganizer = $value;
+
+        return $this;
+    }
+}

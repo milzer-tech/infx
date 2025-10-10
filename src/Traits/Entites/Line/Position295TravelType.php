@@ -1,0 +1,36 @@
+<?php
+
+namespace Milzer\Infx\Traits\Entites\Line;
+
+use Milzer\Infx\Attributes\Field;
+
+trait Position295TravelType
+{
+    /**
+     * The travel type of the line.
+     */
+    #[Field(
+        position: 295,
+        length: 2,
+        validationRules: ['string', 'min:1', 'max:2']
+    )]
+    protected string $travelType;
+
+    /**
+     * Get the travel type of the line.
+     */
+    public function getTravelType(): string
+    {
+        return $this->travelType;
+    }
+
+    /**
+     * Set the travel type of the line.
+     */
+    public function setTravelType(string $type): static
+    {
+        $this->travelType = $type;
+
+        return $this;
+    }
+}
