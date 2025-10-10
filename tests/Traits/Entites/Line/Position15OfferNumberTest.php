@@ -10,9 +10,7 @@ it('sets and gets the offer number', function (): void {
 });
 
 it('has the correct Field attribute for offerNumber property', function (): void {
-    $reflectionClass = new ReflectionClass(Line::class);
-    $property = $reflectionClass->getProperty('offerNumber');
-    $attributes = $property->getAttributes(Field::class);
+    $attributes = getAttributesOfLineProperty('offerNumber');
 
     expect($attributes)
         ->toHaveCount(1)

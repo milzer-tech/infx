@@ -15,9 +15,7 @@ it('sets the sentence format', function (): void {
 });
 
 it('has the correct Field attribute for sentenceFormat property', function (): void {
-    $reflectionClass = new ReflectionClass(Line::class);
-    $property = $reflectionClass->getProperty('sentenceFormat');
-    $attributes = $property->getAttributes(Field::class);
+    $attributes = getAttributesOfLineProperty('sentenceFormat');
 
     expect($attributes)
         ->toHaveCount(1)

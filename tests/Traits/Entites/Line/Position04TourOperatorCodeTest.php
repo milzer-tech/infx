@@ -10,9 +10,7 @@ it('sets and gets the tour operator code', function (): void {
 });
 
 it('has the correct Field attribute for tourOperatorCode property', function (): void {
-    $reflectionClass = new ReflectionClass(Line::class);
-    $property = $reflectionClass->getProperty('tourOperatorCode');
-    $attributes = $property->getAttributes(Field::class);
+    $attributes = getAttributesOfLineProperty('tourOperatorCode');
 
     expect($attributes)
         ->toHaveCount(1)

@@ -1,12 +1,9 @@
 <?php
 
 use Milzer\Infx\Attributes\Field;
-use Milzer\Infx\Entities\Line;
 
 it('has the correct Field attribute for leer property', function (): void {
-    $reflectionClass = new ReflectionClass(Line::class);
-    $property = $reflectionClass->getProperty('leer');
-    $attributes = $property->getAttributes(Field::class);
+    $attributes = getAttributesOfLineProperty('leer');
 
     expect($attributes)
         ->toHaveCount(1)

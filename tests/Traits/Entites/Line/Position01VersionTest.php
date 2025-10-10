@@ -16,9 +16,7 @@ it('sets the version to First', function (): void {
 });
 
 it('has the correct Field attribute for version property', function (): void {
-    $reflectionClass = new ReflectionClass(Line::class);
-    $property = $reflectionClass->getProperty('version');
-    $attributes = $property->getAttributes(Field::class);
+    $attributes = getAttributesOfLineProperty('version');
 
     expect($attributes)
         ->toHaveCount(1)
