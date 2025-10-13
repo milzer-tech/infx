@@ -14,7 +14,7 @@ trait Position03SentenceFormat
         length: 1,
         validationRules: ['string', 'min:1', 'max:1']
     )]
-    protected string $sentenceFormat = 'V';
+    protected string $sentenceFormat;
 
     /**
      * Get the sentence format of the Line.

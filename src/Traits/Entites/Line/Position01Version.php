@@ -14,7 +14,7 @@ trait Position01Version
         position: 1,
         length: 2,
     )]
-    protected InfxVersion $version = InfxVersion::Second;
+    protected InfxVersion $version;
 
     /**
      * Get the version of the Line.

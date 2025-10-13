@@ -6,6 +6,7 @@ namespace Milzer\Infx\Entities;
 
 use BackedEnum;
 use InvalidArgumentException;
+use Milzer\Infx\Enums\InfxVersion;
 use Milzer\Infx\Traits\Entites\Line as LineHelper;
 use ReflectionException;
 use Stringable;
@@ -121,7 +122,12 @@ class Line implements Stringable
      *
      * @var array<string, string|int|float|BackedEnum>
      */
-    private static array $defaultValues = [];
+    private static array $defaultValues = [
+        'version' => InfxVersion::Second,
+        'sentenceFormat' => 'V',
+        'expected' => 'V',
+        'expectedDepartureReturnTime' => 'V',
+    ];
 
     /**
      * Create a new instance of Line.
