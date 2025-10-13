@@ -188,6 +188,16 @@ class Line implements Stringable
     }
 
     /**
+     * Returns the INFX offer.
+     *
+     * @throws ReflectionException
+     */
+    public function generateInfx(): string
+    {
+        return $this->toString();
+    }
+
+    /**
      * Assign the default values to the properties.
      */
     private function assignDefaultValues(): void

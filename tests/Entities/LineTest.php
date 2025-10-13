@@ -82,7 +82,7 @@ it('creates a real line', function (): void {
         ->setTomaSecondRequirement('H')
         ->setTomaThirdRequirement('KV');
 
-    expect($line->toString())
+    expect($line->generateInfx())
         ->toBe($real)
         ->and(mb_strlen((string) $line))
         ->toBe(985);
