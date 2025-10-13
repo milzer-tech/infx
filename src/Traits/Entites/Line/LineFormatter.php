@@ -21,12 +21,12 @@ trait LineFormatter
     {
         $properties = [];
 
-        $reflectionProperties = static::getReflectionProperties();
+        $reflectionProperties = self::getReflectionProperties();
 
         $this->validateRequiredProperty($reflectionProperties);
 
         foreach ($reflectionProperties as $property => $reflectionProperty) {
-            $field = static::getFieldInstance((string) $property);
+            $field = self::getFieldInstance((string) $property);
 
             $properties[$field->position] = [
                 'property' => $property,
@@ -102,15 +102,16 @@ trait LineFormatter
     public static function parseInfx(string $offer): Line
     {
         $properties = [];
-        $reflectionProperties = static::getReflectionProperties();
+        $reflectionProperties = self::getReflectionProperties();
 
         foreach ($reflectionProperties as $property => $reflectionProperty) {
-            $field = static::getFieldInstance((string) $property);
+            $field = self::getFieldInstance((string) $property);
 
             $properties[$field->position] = [
                 'name' => $property,
                 'length' => $field->length,
-                'type' => $reflectionProperty->getType()->getName(),
+                // @phpstan-ignore-next-line
+                'type' => $reflectionProperty->getType()?->getName(),
             ];
         }
 

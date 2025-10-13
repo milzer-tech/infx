@@ -88,7 +88,7 @@ it('creates a real line', function (): void {
         ->toBe(985);
 });
 
-it('tests bulk assign', function () {
+it('tests bulk assign', function (): void {
     $line = Line::make();
 
     $line->bulkAssign([

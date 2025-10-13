@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Milzer\Infx\Entities;
 
 use BackedEnum;
+use Carbon\Carbon;
 use InvalidArgumentException;
 use Milzer\Infx\Enums\InfxVersion;
 use Milzer\Infx\Traits\Entites\Line as LineHelper;
@@ -44,7 +45,6 @@ class Line implements Stringable
 
     use LineHelper\Position167SecondChildAgeTo;
     use LineHelper\Position169SecondChildPrice;
-
     use LineHelper\Position181SpecialDiscount;
     //     [+/]-/% als Prefix//
 
@@ -200,7 +200,7 @@ class Line implements Stringable
     /**
      * Bulk assign properties to the line.
      *
-     * @param  array<string, string|int|float|BackedEnum>  $data
+     * @param  array<string, string|int|float|BackedEnum|Carbon>  $data
      */
     public function bulkAssign(array $data): Line
     {
