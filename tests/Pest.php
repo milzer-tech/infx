@@ -1,6 +1,5 @@
 <?php
 
-use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line;
 
 /**
@@ -12,5 +11,5 @@ function getAttributesOfLineProperty(string $name): array
 
     $property = $reflectionClass->getProperty($name);
 
-    return $property->getAttributes(Field::class);
+    return $property->getAttributes();
 }

@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
-trait Position104ccupancy
+trait Position104Occupancy
 {
     /**
      * The occupancy.
      */
-    #[Field(
-        position: 104,
-        length: 1,
-        validationRules: ['int', 'min:1', 'max:9']
-    )]
+    #[Field(position: 104, length: 1, validationRules: ['int', 'min:0', 'max:9'])]
+    #[Phoenix(position: 67, length: 1, validationRules: ['int', 'min:0', 'max:9'])]
     protected int $occupancy;
 
     /**

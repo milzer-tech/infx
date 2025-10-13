@@ -3,6 +3,7 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 use Milzer\Infx\Enums\InfxVersion;
 
 trait Position01Version
@@ -10,10 +11,8 @@ trait Position01Version
     /**
      * The version of NFIX.
      */
-    #[Field(
-        position: 1,
-        length: 2,
-    )]
+    #[Field(position: 1, length: 2, )]
+    #[Phoenix(position: 1, length: 2)]
     protected InfxVersion $version;
 
     /**

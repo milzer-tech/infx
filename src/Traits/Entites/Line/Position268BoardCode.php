@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position268BoardCode
 {
     /**
      * The board code of the Line.
      */
-    #[Field(
-        position: 268,
-        length: 2,
-        validationRules: ['string', 'min:1', 'max:2']
-    )]
+    #[Field(position: 268, length: 2, validationRules: ['string', 'min:0', 'max:2'])]
+    #[Phoenix(position: 64, length: 3, validationRules: ['string', 'min:0', 'max:3'])]
     protected string $boardCode;
 
     /**

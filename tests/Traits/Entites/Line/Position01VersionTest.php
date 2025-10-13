@@ -1,6 +1,5 @@
 <?php
 
-use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line; // Assuming `Line` uses `HasVersion` trait
 use Milzer\Infx\Enums\InfxVersion;
 
@@ -18,13 +17,18 @@ it('sets the version to First', function (): void {
 it('has the correct Field attribute for version property', function (): void {
     $attributes = getAttributesOfLineProperty('version');
 
-    expect($attributes)
-        ->toHaveCount(1)
-        ->and($attributes[0]->getName())->toBe(Field::class);
+    expect($attributes)->toHaveCount(2);
 
     $fieldAttribute = $attributes[0]->newInstance();
+    $phoenix = $attributes[1]->newInstance();
 
     expect($fieldAttribute)
+        ->position->toBe(1)
+        ->length->toBe(2)
+        ->validationRules->toEqualCanonicalizing([])
+        ->validationMessages->toEqualCanonicalizing([]);
+
+    expect($phoenix)
         ->position->toBe(1)
         ->length->toBe(2)
         ->validationRules->toEqualCanonicalizing([])

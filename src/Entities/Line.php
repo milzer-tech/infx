@@ -20,7 +20,7 @@ class Line implements Stringable
     use LineHelper\Position04TourOperatorCode;
     use LineHelper\Position09Leer;
     use LineHelper\Position100ReturnFlightNumber;
-    use LineHelper\Position104ccupancy;
+    use LineHelper\Position104Occupancy;
     use LineHelper\Position105MaximumChildrenOccupancy;
     use LineHelper\Position106MinimumOccupancy;
     use LineHelper\Position107MaximumOccupancy;

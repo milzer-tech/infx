@@ -4,16 +4,15 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Carbon\Carbon;
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position34StartDate
 {
     /**
      * The start date.
      */
-    #[Field(
-        position: 34,
-        length: 10,
-    )]
+    #[Field(position: 34, length: 10)]
+    #[Phoenix(position: 24, length: 8)]
     protected Carbon $startDate;
 
     /**

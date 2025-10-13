@@ -1,7 +1,6 @@
 <?php
 
 use Carbon\Carbon;
-use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line;
 
 it('sets and gets the start date', function (): void {
@@ -14,15 +13,20 @@ it('sets and gets the start date', function (): void {
 it('has the correct Field attribute for start date property', function (): void {
     $attributes = getAttributesOfLineProperty('startDate');
 
-    expect($attributes)
-        ->toHaveCount(1)
-        ->and($attributes[0]->getName())->toBe(Field::class);
+    expect($attributes)->toHaveCount(2);
 
     $fieldAttribute = $attributes[0]->newInstance();
+    $phoenix = $attributes[1]->newInstance();
 
     expect($fieldAttribute)
         ->position->toBe(34)
         ->length->toBe(10)
+        ->validationRules->toEqualCanonicalizing([])
+        ->validationMessages->toEqualCanonicalizing([]);
+
+    expect($phoenix)
+        ->position->toBe(24)
+        ->length->toBe(8)
         ->validationRules->toEqualCanonicalizing([])
         ->validationMessages->toEqualCanonicalizing([]);
 });
