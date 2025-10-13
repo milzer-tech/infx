@@ -87,3 +87,38 @@ it('creates a real line', function (): void {
         ->and(mb_strlen((string) $line))
         ->toBe(985);
 });
+
+it('tests bulk assign', function () {
+    $line = Line::make();
+
+    $line->bulkAssign([
+        'version' => InfxVersion::Second,
+        'sentenceFormat' => 'V',
+        'tourOperatorCode' => 'SAT',
+        'offerNumber' => 'R25',
+        'startDate' => Carbon::parse('2025-07-02'),
+        'endDate' => Carbon::parse('2025-07-11'),
+        'departureAirportOutbound' => 'BER',
+        'arrivalAirportOutbound' => 'DUB',
+        'departureAirportReturn' => 'DUB',
+    ]);
+
+    expect($line->getVersion())
+        ->toBe(InfxVersion::Second)
+        ->and($line->getSentenceFormat())
+        ->toBe('V')
+        ->and($line->getTourOperatorCode())
+        ->toBe('SAT')
+        ->and($line->getOfferNumber())
+        ->toBe('R25')
+        ->and($line->getStartDate()->toDateString())
+        ->toBe(Carbon::parse('2025-07-02')->toDateString())
+        ->and($line->getEndDate()->toDateString())
+        ->toBe(Carbon::parse('2025-07-11')->toDateString())
+        ->and($line->getDepartureAirportOutbound())
+        ->toBe('BER')
+        ->and($line->getArrivalAirportOutbound())
+        ->toBe('DUB')
+        ->and($line->getDepartureAirportReturn())
+        ->toBe('DUB');
+});
