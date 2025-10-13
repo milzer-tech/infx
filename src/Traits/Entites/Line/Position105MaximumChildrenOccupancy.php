@@ -12,7 +12,7 @@ trait Position105MaximumChildrenOccupancy
     #[Field(
         position: 105,
         length: 1,
-        validationRules: ['int', 'min:1', 'max:9']
+        validationRules: ['int', 'min:0', 'max:9']
     )]
     protected int $maximumChildrenOccupancy;
 

@@ -21,6 +21,6 @@ it('has the correct Field attribute for maximumChildrenOccupancy property', func
     expect($fieldAttribute)
         ->position->toBe(105)
         ->length->toBe(1)
-        ->validationRules->toEqualCanonicalizing(['int', 'min:1', 'max:9'])
+        ->validationRules->toEqualCanonicalizing(['int', 'min:0', 'max:9'])
         ->validationMessages->toEqualCanonicalizing([]);
 });

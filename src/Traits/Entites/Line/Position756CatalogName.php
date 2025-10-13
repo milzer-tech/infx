@@ -12,7 +12,7 @@ trait Position756CatalogName
     #[Field(
         position: 756,
         length: 40,
-        validationRules: ['string', 'min:1', 'max:40']
+        validationRules: ['string', 'min:0', 'max:40']
     )]
     protected string $catalogName;
 

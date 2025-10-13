@@ -43,8 +43,9 @@ class Line implements Stringable
     //     [+/]-/% als Prefix
 
     use LineHelper\Position167SecondChildAgeTo;
-    use LineHelper\Position181SpecialDiscount;
+    use LineHelper\Position169SecondChildPrice;
 
+    use LineHelper\Position181SpecialDiscount;
     //     [+/]-/% als Prefix//
 
     use LineHelper\Position182SpecialChildrenDiscount;
@@ -79,7 +80,6 @@ class Line implements Stringable
     use LineHelper\Position361TomaSecondPerformance;
     use LineHelper\Position378TomaThirdPerformance;
     use LineHelper\Position395TomaFourthPerformance;
-    use LineHelper\Position40SecondChildPrice;
     use LineHelper\Position412TomaFirstAccommodation;
     use LineHelper\Position418TomaSecondAccommodation;
     use LineHelper\Position424TomaThirdAccommodation;
@@ -195,6 +195,24 @@ class Line implements Stringable
     public function generateInfx(): string
     {
         return $this->toString();
+    }
+
+    /**
+     * Bulk assign properties to the line.
+     *
+     * @param  array<string, string|int|float|BackedEnum>  $data
+     */
+    public function bulkAssign(array $data): Line
+    {
+        foreach ($data as $property => $value) {
+            if (! property_exists(static::class, $property)) {
+                throw new InvalidArgumentException("The property $property does not exist on ".static::class);
+            }
+
+            $this->{$property} = $value;
+        }
+
+        return $this;
     }
 
     /**

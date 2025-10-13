@@ -4,7 +4,7 @@ namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
 
-trait Position40SecondChildPrice
+trait Position169SecondChildPrice
 {
     /**
      * The second child price.

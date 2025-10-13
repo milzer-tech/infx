@@ -12,7 +12,7 @@ trait Position796CatalogPage
     #[Field(
         position: 796,
         length: 4,
-        validationRules: ['int', 'min:1', 'max:9999']
+        validationRules: ['int', 'min:0', 'max:9999']
     )]
     protected int $catalogPage;
 

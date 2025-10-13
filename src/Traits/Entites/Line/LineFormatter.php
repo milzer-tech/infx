@@ -5,6 +5,8 @@ namespace Milzer\Infx\Traits\Entites\Line;
 use BackedEnum;
 use Carbon\Carbon;
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Entities\Line;
+use Milzer\Infx\Enums\InfxVersion;
 use ReflectionException;
 use ReflectionProperty;
 
@@ -19,12 +21,12 @@ trait LineFormatter
     {
         $properties = [];
 
-        $reflectionProperties = $this->getReflectionProperties();
+        $reflectionProperties = static::getReflectionProperties();
 
         $this->validateRequiredProperty($reflectionProperties);
 
         foreach ($reflectionProperties as $property => $reflectionProperty) {
-            $field = $this->getFieldInstance((string) $property);
+            $field = static::getFieldInstance((string) $property);
 
             $properties[$field->position] = [
                 'property' => $property,
@@ -72,9 +74,9 @@ trait LineFormatter
      *
      * @throws ReflectionException
      */
-    private function getFieldInstance(string $name): Field
+    private static function getFieldInstance(string $name): Field
     {
-        $reflectionProperty = new ReflectionProperty($this, $name);
+        $reflectionProperty = new ReflectionProperty(Line::class, $name);
 
         return $reflectionProperty->getAttributes(Field::class)[0]->newInstance();
     }
@@ -84,9 +86,9 @@ trait LineFormatter
      *
      * @return array<string, ReflectionProperty>
      */
-    private function getReflectionProperties(): array
+    private static function getReflectionProperties(): array
     {
-        $reflectionClass = new \ReflectionClass($this);
+        $reflectionClass = new \ReflectionClass(Line::class);
         $properties = $reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED);
         $propertyArray = [];
 
@@ -95,5 +97,47 @@ trait LineFormatter
         }
 
         return $propertyArray;
+    }
+
+    public static function parseInfx(string $offer): Line
+    {
+        $properties = [];
+        $reflectionProperties = static::getReflectionProperties();
+
+        foreach ($reflectionProperties as $property => $reflectionProperty) {
+            $field = static::getFieldInstance((string) $property);
+
+            $properties[$field->position] = [
+                'name' => $property,
+                'length' => $field->length,
+                'type' => $reflectionProperty->getType()->getName(),
+            ];
+        }
+
+        ksort($properties);
+
+        $data = [];
+        foreach ($properties as $position => ['name' => $name, 'length' => $length, 'type' => $type]) {
+            $value = mb_substr($offer, $position - 1, $length);
+
+            // skip empty values
+            if (($type === 'int' || $type === 'float') && trim($value) === '') {
+                continue;
+            }
+
+            $value = match ($type) {
+                InfxVersion::class => InfxVersion::from($value),
+                Carbon::class => Carbon::parse($value),
+                'string' => $value,
+                'int' => (int) $value,
+                'float' => (float) $value,
+                default => $value,
+            };
+
+            $data[$name] = $value;
+        }
+
+        return Line::make()->bulkAssign($data);
+
     }
 }

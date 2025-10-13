@@ -12,7 +12,7 @@ trait Position803FreeHotelPlaces
     #[Field(
         position: 803,
         length: 3,
-        validationRules: ['int', 'min:1', 'max:999']
+        validationRules: ['int', 'min:0', 'max:999']
     )]
     protected int $freeHotelPlaces;
 

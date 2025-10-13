@@ -21,6 +21,6 @@ it('has the correct Field attribute for freeHotelPlaces property', function (): 
     expect($fieldAttribute)
         ->position->toBe(803)
         ->length->toBe(3)
-        ->validationRules->toEqualCanonicalizing(['int', 'min:1', 'max:999'])
+        ->validationRules->toEqualCanonicalizing(['int', 'min:0', 'max:999'])
         ->validationMessages->toEqualCanonicalizing([]);
 });

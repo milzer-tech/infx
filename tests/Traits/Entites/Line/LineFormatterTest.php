@@ -55,3 +55,12 @@ it('__toString proxies to toString', function (): void {
 
     expect((string) $line)->toBe($line->toString());
 });
+
+it('parses an infx offer', function (): void {
+    $real = '01VSAT        R25                02.07.202511.07.2025BERDUBDUBBER                V        V            2 2322EUR2569.00                               142569                               Irland - Nordirland      Flugreise Irland und Nord   DZDoppelzimmer             FMV                                                   SAT     B F  H  KV    BER DUB                                                                   28                FL-IRNIT                                                                        Flugreise Irland und Nordirland                                                                                                                                                                                                                 SAT Touristik 2025                          1                         Doppelzimmer                                                                                                                                                    ';
+
+    $line = Line::parseInfx($real);
+
+    expect($line->generateInfx())
+        ->toBe($real);
+});

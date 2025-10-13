@@ -21,6 +21,6 @@ it('has the correct Field attribute for catalogName property', function (): void
     expect($fieldAttribute)
         ->position->toBe(756)
         ->length->toBe(40)
-        ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:40'])
+        ->validationRules->toEqualCanonicalizing(['string', 'min:0', 'max:40'])
         ->validationMessages->toEqualCanonicalizing([]);
 });
