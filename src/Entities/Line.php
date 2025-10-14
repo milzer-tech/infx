@@ -7,7 +7,10 @@ namespace Milzer\Infx\Entities;
 use BackedEnum;
 use Carbon\Carbon;
 use InvalidArgumentException;
+use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 use Milzer\Infx\Enums\InfxVersion;
+use Milzer\Infx\Enums\Layout;
 use Milzer\Infx\Traits\Entites\Line as LineHelper;
 use ReflectionException;
 use Stringable;
@@ -130,6 +133,8 @@ class Line implements Stringable
         'expectedDepartureReturnTime' => 'V',
     ];
 
+    private static Layout $layout = Layout::Infx;
+
     /**
      * Create a new instance of Line.
      */
@@ -224,5 +229,28 @@ class Line implements Stringable
         foreach (self::$defaultValues as $property => $value) {
             $this->{$property} = $value;
         }
+    }
+
+    /**
+     * Set the layout to Infx.
+     */
+    public static function setLayoutToInfx(): void
+    {
+        self::$layout = Layout::Infx;
+    }
+
+    /**
+     * Set the layout to Phoenix.
+     */
+    public static function setLayoutToPhoenix(): void
+    {
+        self::$layout = Layout::Phoenix;
+    }
+
+    protected static function getCurrentAttributeClass(): string
+    {
+        return static::$layout->value === Layout::Infx->value
+            ? Field::class
+            : Phoenix::class;
     }
 }

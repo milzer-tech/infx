@@ -30,8 +30,13 @@ trait Validator
                 $data[$property->name] = $value instanceof Carbon ? $value->format('d.m.Y') : $value;
             }
 
-            $rules[$property->name] = $this->getFieldInstance(name: $property->name)->validationRules;
-            $messages[$property->name] = $this->getFieldInstance(name: $property->name)->validationMessages;
+            $field = $this->getFieldInstance(name: $property->name);
+            if (is_null($field)) {
+                continue;
+            }
+
+            $rules[$property->name] = $field->validationRules;
+            $messages[$property->name] = $field->validationMessages;
         }
 
         $validator = ValidatorHelper::validate(data: $data, rules: $rules, messages: $messages);

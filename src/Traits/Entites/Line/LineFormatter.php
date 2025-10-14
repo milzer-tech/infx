@@ -20,13 +20,14 @@ trait LineFormatter
     public function toString(): string
     {
         $properties = [];
-
         $reflectionProperties = self::getReflectionProperties();
-
         $this->validateRequiredProperty($reflectionProperties);
 
         foreach ($reflectionProperties as $property => $reflectionProperty) {
             $field = self::getFieldInstance((string) $property);
+            if (is_null($field)) {
+                continue;
+            }
 
             $properties[$field->position] = [
                 'property' => $property,
@@ -74,11 +75,11 @@ trait LineFormatter
      *
      * @throws ReflectionException
      */
-    private static function getFieldInstance(string $name): Field
+    private static function getFieldInstance(string $name): ?Field
     {
         $reflectionProperty = new ReflectionProperty(Line::class, $name);
 
-        return $reflectionProperty->getAttributes(Field::class)[0]->newInstance();
+        return $reflectionProperty->getAttributes(static::getCurrentAttributeClass())[0]?->newInstance();
     }
 
     /**
@@ -106,6 +107,9 @@ trait LineFormatter
 
         foreach ($reflectionProperties as $property => $reflectionProperty) {
             $field = self::getFieldInstance((string) $property);
+            if (is_null($field)) {
+                continue;
+            }
 
             $properties[$field->position] = [
                 'name' => $property,

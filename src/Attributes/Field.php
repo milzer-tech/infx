@@ -5,7 +5,7 @@ namespace Milzer\Infx\Attributes;
 use Attribute;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
-final readonly class Field
+readonly class Field
 {
     /**
      * Create a new instance of the Length.
