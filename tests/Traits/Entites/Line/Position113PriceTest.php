@@ -1,6 +1,5 @@
 <?php
 
-use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line;
 
 it('sets and gets the price', function (): void {
@@ -12,15 +11,20 @@ it('sets and gets the price', function (): void {
 it('has the correct Field attribute for price property', function (): void {
     $attributes = getAttributesOfLineProperty('price');
 
-    expect($attributes)
-        ->toHaveCount(1)
-        ->and($attributes[0]->getName())->toBe(Field::class);
+    expect($attributes)->toHaveCount(2);
 
     $fieldAttribute = $attributes[0]->newInstance();
+    $phoenix = $attributes[1]->newInstance();
 
     expect($fieldAttribute)
         ->position->toBe(113)
         ->length->toBe(12)
+        ->validationRules->toEqualCanonicalizing([])
+        ->validationMessages->toEqualCanonicalizing([]);
+
+    expect($phoenix)
+        ->position->toBe(68)
+        ->length->toBe(5)
         ->validationRules->toEqualCanonicalizing([])
         ->validationMessages->toEqualCanonicalizing([]);
 });
