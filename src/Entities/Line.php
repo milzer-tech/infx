@@ -15,6 +15,7 @@ use Stringable;
 class Line implements Stringable
 {
     use LineHelper\LineFormatter;
+    use LineHelper\PhoenixProperties;
     use LineHelper\Position01Version;
     use LineHelper\Position03SentenceFormat;
     use LineHelper\Position04TourOperatorCode;
