@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position110Currency
 {
     /**
      * The currency of the line.
      */
-    #[Field(
-        position: 110,
-        length: 3,
-        validationRules: ['string', 'max:3'],
-    )]
+    #[Field(position: 110, length: 3, validationRules: ['string', 'max:3'])]
+    #[Phoenix(position: 583, length: 3, validationRules: ['string', 'max:3'])]
     protected string $currency;
 
     /**
