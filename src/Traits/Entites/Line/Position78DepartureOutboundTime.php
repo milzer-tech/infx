@@ -3,6 +3,7 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position78DepartureOutboundTime
 {
@@ -11,6 +12,11 @@ trait Position78DepartureOutboundTime
      */
     #[Field(
         position: 78,
+        length: 4,
+        validationRules: ['regex:/^(?:[01][0-9]|2[0-3])[0-5][0-9]$|^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/']
+    )]
+    #[Phoenix(
+        position: 211,
         length: 4,
         validationRules: ['regex:/^(?:[01][0-9]|2[0-3])[0-5][0-9]$|^(?:[01][0-9]|2[0-3]):[0-5][0-9]$/']
     )]
