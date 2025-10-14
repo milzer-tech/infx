@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position332TomaFirstRequirement
 {
     /**
      * The first TOMA requirement of the line.
      */
-    #[Field(
-        position: 332,
-        length: 3,
-        validationRules: ['string', 'min:1', 'max:3']
-    )]
+    #[Field(position: 332, length: 3, validationRules: ['string', 'min:0', 'max:3'])]
+    #[Phoenix(position: 73, length: 2, validationRules: ['string', 'min:0', 'max:2'])]
     protected string $tomaFirstRequirement;
 
     /**
