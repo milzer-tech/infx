@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position803FreeHotelPlaces
 {
     /**
      * The free hotel places of the line.
      */
-    #[Field(
-        position: 803,
-        length: 3,
-        validationRules: ['int', 'min:0', 'max:999']
-    )]
+    #[Field(position: 803, length: 3, validationRules: ['int', 'min:0', 'max:999'])]
+    #[Phoenix(position: 445, length: 3, validationRules: ['int', 'min:0', 'max:999'])]
     protected int $freeHotelPlaces;
 
     /**
