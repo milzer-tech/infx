@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position796CatalogPage
 {
     /**
      * The catalog page of the line.
      */
-    #[Field(
-        position: 796,
-        length: 4,
-        validationRules: ['int', 'min:0', 'max:9999']
-    )]
+    #[Field(position: 796, length: 4, validationRules: ['int', 'min:0', 'max:9999'])]
+    #[Phoenix(position: 438, length: 4, validationRules: ['int', 'min:0', 'max:9999'])]
     protected int $catalogPage;
 
     /**
