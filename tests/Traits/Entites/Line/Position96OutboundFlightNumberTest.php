@@ -1,6 +1,5 @@
 <?php
 
-use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line;
 
 it('sets and gets the outbound flight number', function (): void {
@@ -12,15 +11,20 @@ it('sets and gets the outbound flight number', function (): void {
 it('has the correct Field attribute for outboundFlightNumber property', function (): void {
     $attributes = getAttributesOfLineProperty('outboundFlightNumber');
 
-    expect($attributes)
-        ->toHaveCount(1)
-        ->and($attributes[0]->getName())->toBe(Field::class);
+    expect($attributes)->toHaveCount(2);
 
     $fieldAttribute = $attributes[0]->newInstance();
+    $phoenix = $attributes[1]->newInstance();
 
     expect($fieldAttribute)
         ->position->toBe(96)
         ->length->toBe(4)
-        ->validationRules->toEqualCanonicalizing(['string', 'min:1', 'max:4'])
+        ->validationRules->toEqualCanonicalizing(['string', 'min:0', 'max:4'])
+        ->validationMessages->toEqualCanonicalizing([]);
+
+    expect($phoenix)
+        ->position->toBe(203)
+        ->length->toBe(7)
+        ->validationRules->toEqualCanonicalizing(['string', 'min:0', 'max:7'])
         ->validationMessages->toEqualCanonicalizing([]);
 });

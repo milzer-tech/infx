@@ -3,17 +3,15 @@
 namespace Milzer\Infx\Traits\Entites\Line;
 
 use Milzer\Infx\Attributes\Field;
+use Milzer\Infx\Attributes\Phoenix;
 
 trait Position96OutboundFlightNumber
 {
     /**
      * The outbound flight number.
      */
-    #[Field(
-        position: 96,
-        length: 4,
-        validationRules: ['string', 'min:1', 'max:4']
-    )]
+    #[Field(position: 96, length: 4, validationRules: ['string', 'min:0', 'max:4'])]
+    #[Phoenix(position: 203, length: 7, validationRules: ['string', 'min:0', 'max:7'])]
     protected string $outboundFlightNumber;
 
     /**
