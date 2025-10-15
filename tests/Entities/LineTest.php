@@ -125,8 +125,9 @@ it('tests bulk assign', function (): void {
         ->toBe('DUB');
 });
 
-it('get filled properties', function () {
+it('get filled properties', function (): void {
     Line::setLayoutToInfx();
+    Line::setInfxDefaultValues();
     $line = Line::make();
 
     $line->bulkAssign([
@@ -146,5 +147,7 @@ it('get filled properties', function () {
             'offerNumber' => 'R25',
             'startDate' => $startDate,
             'endDate' => $endDate,
+            'expected' => 'V',
+            'expectedDepartureReturnTime' => 'V',
         ]);
 });

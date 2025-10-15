@@ -293,7 +293,7 @@ class Line implements Stringable
     public function getFilledProperties(): array
     {
         $properties = [];
-
+        // @phpstan-ignore-next-line
         foreach ($this as $property => $value) {
             $properties[$property] = $value;
         }
