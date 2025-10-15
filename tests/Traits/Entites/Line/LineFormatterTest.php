@@ -5,6 +5,7 @@ use Milzer\Infx\Entities\Line;
 use Milzer\Infx\Enums\InfxVersion;
 
 it('formats properties by position with padding and special types', function (): void {
+    Line::setInfxDefaultValues();
     $line = Line::make()
         ->setVersion(InfxVersion::First)
         ->setTourOperatorCode('TO')
@@ -64,3 +65,15 @@ it('parses an infx offer', function (): void {
     expect($line->generateInfx())
         ->toBe($real);
 });
+
+// it('parses a Phoenix offer', function (): void {
+//    $real = '01PHX DUSHRGHRGDUS     09.04.26  14        AGYAKM           205Q  103458YYEinzelkabine Balkon 205                 �gypten Total mit NiFort Arabesque Spa&VA: Ausfluege bei Nilkreuzfahrt inkl.    DUSHRG4KSEK4491 18002245HRGDUS4UEW 9983 16502220N                                          01Jlkreu                                                                                                                                                INT 006001                                                                                                                        2 9       11111EUR';
+//
+//    Line::setLayoutToPhoenix();
+//
+//    $line = Line::parseInfx($real);
+//
+//    expect($line->generateInfx())
+//        ->toBe($real);
+//    Line::setLayoutToInfx();
+// });

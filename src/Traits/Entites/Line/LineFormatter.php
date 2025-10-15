@@ -54,7 +54,7 @@ trait LineFormatter
 
         foreach ($properties as $property) {
             if ($property['value'] instanceof Carbon) {
-                $value = $property['value']->format('d.m.Y');
+                $value = $property['value']->format(self::getCarbonFormat());
             } elseif ($property['value'] instanceof BackedEnum) {
                 $value = $property['value']->value;
             } else {
@@ -132,7 +132,7 @@ trait LineFormatter
 
             $value = match ($type) {
                 InfxVersion::class => InfxVersion::from($value),
-                Carbon::class => Carbon::parse($value),
+                Carbon::class => Carbon::createFromFormat(self::getCarbonFormat(), $value),
                 'string' => $value,
                 'int' => (int) $value,
                 'float' => (float) $value,
@@ -143,6 +143,5 @@ trait LineFormatter
         }
 
         return Line::make()->bulkAssign($data);
-
     }
 }

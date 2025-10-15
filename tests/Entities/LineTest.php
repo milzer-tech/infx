@@ -25,12 +25,12 @@ it('__toString delegates to toString', function (): void {
 
 it('tests setDefaultValues and unsetDefaultValues', function (): void {
     Line::setDefaultValues([
-        'partner' => 'PARTNER1',
+        'currency' => 'EUR',
     ]);
 
-    expect(Line::make()->getPartner())->toBe('PARTNER1');
+    expect(Line::make()->getCurrency())->toBe('EUR');
 
-    Line::unsetDefaultValues('partner');
+    Line::unsetDefaultValues('currency');
 
     expect(fn (): string => Line::make()->getPartner())->toThrow(Error::class);
 });
@@ -43,6 +43,8 @@ it('setDefaultValues throws when property does not exist', function (): void {
 it('creates a real line', function (): void {
     $real = '01VSAT        R25                02.07.202511.07.2025BERDUBDUBBER                V        V            2 2322EUR2569.00                               142569                               Irland - Nordirland      Flugreise Irland und Nord   DZDoppelzimmer             FMV                                                   SAT     B F  H  KV    BER DUB                                                                   28                FL-IRNIT                                                                        Flugreise Irland und Nordirland                                                                                                                                                                                                                 SAT Touristik 2025                          1                         Doppelzimmer                                                                                                                                                    ';
 
+    Line::setLayoutToInfx();
+    Line::setInfxDefaultValues();
     $line = Line::make()
         ->setVersion(InfxVersion::Second)
         ->setSentenceFormat('V')

@@ -14,7 +14,7 @@ it('has the correct Field attribute for leer property', function (): void {
         ->validationRules->toEqualCanonicalizing([])
         ->validationMessages->toEqualCanonicalizing([]);
 
-    expect($fieldAttribute)
+    expect($phoenix)
         ->position->toBe(19)
         ->length->toBe(5)
         ->validationRules->toEqualCanonicalizing([])

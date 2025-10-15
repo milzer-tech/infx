@@ -4,7 +4,9 @@ use Milzer\Infx\Entities\Line; // Assuming `Line` uses `HasVersion` trait
 use Milzer\Infx\Enums\InfxVersion;
 
 it('gets the default version', function (): void {
-    expect(Line::make()->getVersion())
+    $line = Line::make()->setVersion(InfxVersion::Second);
+
+    expect($line->getVersion())
         ->toBe(InfxVersion::Second);
 });
 

@@ -237,13 +237,6 @@ class Line implements Stringable
     public static function setLayoutToInfx(): void
     {
         self::$layout = Layout::Infx;
-
-        self::$defaultValues = [
-            'version' => InfxVersion::Second,
-            'sentenceFormat' => 'V',
-            'expected' => 'V',
-            'expectedDepartureReturnTime' => 'V',
-        ];
     }
 
     /**
@@ -252,8 +245,23 @@ class Line implements Stringable
     public static function setLayoutToPhoenix(): void
     {
         self::$layout = Layout::Phoenix;
+    }
 
-        self::$defaultValues = [];
+    public static function setInfxDefaultValues(): void
+    {
+        self::$defaultValues = [
+            'version' => InfxVersion::Second,
+            'sentenceFormat' => 'V',
+            'expected' => 'V',
+            'expectedDepartureReturnTime' => 'V',
+        ];
+    }
+
+    public static function setPhoenixDefaultValues(): void
+    {
+        self::$defaultValues = [
+            'version' => InfxVersion::Second,
+        ];
     }
 
     /**

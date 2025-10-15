@@ -4,8 +4,9 @@ use Milzer\Infx\Attributes\Field;
 use Milzer\Infx\Entities\Line;
 
 it('gets the default sentence format', function (): void {
-    expect(Line::make()->getSentenceFormat())
-        ->toBe('V');
+    Line::setInfxDefaultValues();
+
+    expect(Line::make()->getSentenceFormat())->toBe('V');
 });
 
 it('sets the sentence format', function (): void {

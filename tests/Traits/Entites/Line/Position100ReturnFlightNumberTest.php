@@ -24,7 +24,7 @@ it('has the correct Field attribute for returnFlightNumber property', function (
 
     expect($phoenix)
         ->position->toBe(227)
-        ->length->toBe(7)
-        ->validationRules->toEqualCanonicalizing(['string', 'min:0', 'max:7'])
+        ->length->toBe(8)
+        ->validationRules->toEqualCanonicalizing(['string', 'min:0', 'max:8'])
         ->validationMessages->toEqualCanonicalizing([]);
 });

@@ -10,7 +10,7 @@ trait Position25Partner
     /**
      * The offer number.
      */
-    #[Field(position: 25, length: 9, validationRules: ['string', 'min:1', 'max:9'])]
+    #[Field(position: 25, length: 9, validationRules: ['string', 'min:0', 'max:9'])]
     #[Phoenix(position: 32, length: 2)]
     protected string $partner;
 
