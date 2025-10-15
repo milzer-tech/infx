@@ -81,7 +81,7 @@ trait LineFormatter
 
         $attributes = $reflectionProperty->getAttributes(static::getCurrentAttributeClass());
 
-        if (count($attributes) === 0 || ! $attributes[0]->newInstance() instanceof Field) {
+        if ($attributes === [] || ! $attributes[0]->newInstance() instanceof Field) {
             return null;
         }
 
