@@ -11,6 +11,7 @@ trait Position96OutboundFlightNumber
      * The outbound flight number.
      */
     #[Field(position: 96, length: 4, validationRules: ['string', 'min:0', 'max:4'])]
+    // I increased the length to 8 to match the Phoenix field length, the documentation says 7
     #[Phoenix(position: 203, length: 8, validationRules: ['string', 'min:0', 'max:8'])]
     protected string $outboundFlightNumber;
 

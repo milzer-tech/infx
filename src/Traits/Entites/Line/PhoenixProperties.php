@@ -39,6 +39,21 @@ trait PhoenixProperties
     #[Phoenix(position: 463, length: 3, validationRules: ['string', 'min:0', 'max:3'])]
     protected string $thirdAirportOfReturnFlightStopover;
 
+    #[Phoenix(position: 243, length: 43)]
+    protected string $undocumentedField;
+
+    #[Phoenix(position: 288, length: 107)]
+    protected string $undocumentedField2;
+
+    #[Phoenix(position: 466, length: 102)]
+    protected string $undocumentedField3;
+
+    #[Phoenix(position: 569, length: 1)]
+    protected string $undocumentedField4;
+
+    #[Phoenix(position: 571, length: 7)]
+    protected string $undocumentedField5;
+
     public function getDuration(): int
     {
         return $this->duration;
