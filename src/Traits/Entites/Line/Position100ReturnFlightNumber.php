@@ -11,7 +11,7 @@ trait Position100ReturnFlightNumber
      * The return flight number.
      */
     #[Field(position: 100, length: 4, validationRules: ['string', 'min:0', 'max:4'])]
-    #[Phoenix(position: 227, length: 7, validationRules: ['string', 'min:0', 'max:7'])]
+    #[Phoenix(position: 227, length: 8, validationRules: ['string', 'min:0', 'max:8'])]
     protected string $returnFlightNumber;
 
     /**
