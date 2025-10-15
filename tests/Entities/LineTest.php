@@ -124,3 +124,27 @@ it('tests bulk assign', function (): void {
         ->and($line->getDepartureAirportReturn())
         ->toBe('DUB');
 });
+
+it('get filled properties', function () {
+    Line::setLayoutToInfx();
+    $line = Line::make();
+
+    $line->bulkAssign([
+        'version' => InfxVersion::Second,
+        'sentenceFormat' => 'V',
+        'tourOperatorCode' => 'SAT',
+        'offerNumber' => 'R25',
+        'startDate' => $startDate = Carbon::parse('2025-07-02'),
+        'endDate' => $endDate = Carbon::parse('2025-07-11'),
+    ]);
+
+    expect($line->getFilledProperties())
+        ->toBe([
+            'version' => InfxVersion::Second,
+            'sentenceFormat' => 'V',
+            'tourOperatorCode' => 'SAT',
+            'offerNumber' => 'R25',
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+        ]);
+});

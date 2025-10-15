@@ -284,4 +284,20 @@ class Line implements Stringable
     {
         return self::$carbonFormats[self::$layout->value];
     }
+
+    /**
+     * Get the filled properties of the Line.
+     *
+     * @return array<string, string|int|float|BackedEnum|Carbon>
+     */
+    public function getFilledProperties(): array
+    {
+        $properties = [];
+
+        foreach ($this as $property => $value) {
+            $properties[$property] = $value;
+        }
+
+        return $properties;
+    }
 }
