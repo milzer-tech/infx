@@ -126,14 +126,14 @@ class Line implements Stringable
      *
      * @var array<string, string|int|float|BackedEnum>
      */
-    private static array $defaultValues = [
-        'version' => InfxVersion::Second,
-        'sentenceFormat' => 'V',
-        'expected' => 'V',
-        'expectedDepartureReturnTime' => 'V',
-    ];
+    private static array $defaultValues = [];
 
     private static Layout $layout = Layout::Infx;
+
+    private static array $carbonFormats = [
+        Layout::Infx->value => 'd.m.Y',
+        Layout::Phoenix->value => 'd.m.y',
+    ];
 
     /**
      * Create a new instance of Line.
@@ -237,6 +237,13 @@ class Line implements Stringable
     public static function setLayoutToInfx(): void
     {
         self::$layout = Layout::Infx;
+
+        self::$defaultValues = [
+            'version' => InfxVersion::Second,
+            'sentenceFormat' => 'V',
+            'expected' => 'V',
+            'expectedDepartureReturnTime' => 'V',
+        ];
     }
 
     /**
@@ -245,12 +252,25 @@ class Line implements Stringable
     public static function setLayoutToPhoenix(): void
     {
         self::$layout = Layout::Phoenix;
+
+        self::$defaultValues = [];
     }
 
+    /**
+     * Get the current attribute class.
+     */
     protected static function getCurrentAttributeClass(): string
     {
         return static::$layout->value === Layout::Infx->value
             ? Field::class
             : Phoenix::class;
+    }
+
+    /**
+     * Get the Carbon format for the current layout.
+     */
+    protected static function getCarbonFormat(): string
+    {
+        return self::$carbonFormats[self::$layout->value];
     }
 }
