@@ -79,7 +79,13 @@ trait LineFormatter
     {
         $reflectionProperty = new ReflectionProperty(Line::class, $name);
 
-        return $reflectionProperty->getAttributes(static::getCurrentAttributeClass())[0]?->newInstance();
+        $attributes = $reflectionProperty->getAttributes(static::getCurrentAttributeClass());
+
+        if (count($attributes) === 0 || ! $attributes[0]->newInstance() instanceof Field) {
+            return null;
+        }
+
+        return $attributes[0]->newInstance();
     }
 
     /**

@@ -130,6 +130,9 @@ class Line implements Stringable
 
     private static Layout $layout = Layout::Infx;
 
+    /**
+     * @var array<string, string>
+     */
     private static array $carbonFormats = [
         Layout::Infx->value => 'd.m.Y',
         Layout::Phoenix->value => 'd.m.y',
@@ -206,7 +209,7 @@ class Line implements Stringable
     /**
      * Bulk assign properties to the line.
      *
-     * @param  array<string, string|int|float|BackedEnum|Carbon>  $data
+     * @param  array<string, Carbon|float|int|InfxVersion|string|null>  $data
      */
     public function bulkAssign(array $data): Line
     {
@@ -269,7 +272,7 @@ class Line implements Stringable
      */
     protected static function getCurrentAttributeClass(): string
     {
-        return static::$layout->value === Layout::Infx->value
+        return self::$layout->value === Layout::Infx->value
             ? Field::class
             : Phoenix::class;
     }
